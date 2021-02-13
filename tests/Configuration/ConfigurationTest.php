@@ -19,7 +19,9 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Idm\Bundle\AdvertisingBundle\DependencyInjection\Configuration::getConfigTreeBuilder
+ *
  */
 class ConfigurationTest extends TestCase
 {
