@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\Kernel;
 use Twig\Test\IntegrationTestCase;
 
 /**
- * @internal
+ * Test Twig Extensions
  */
 class IntegrationTest extends IntegrationTestCase
 {

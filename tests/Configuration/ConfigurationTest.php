@@ -18,7 +18,7 @@ use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @internal
+ * Test configuration
  */
 class ConfigurationTest extends TestCase
 {
