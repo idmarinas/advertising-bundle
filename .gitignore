@@ -103,5 +103,7 @@ $RECYCLE.BIN/
 
 # dist files/folder
 *.dist
+# Not ignore
+!phpunit.xml.dist
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,symfony,windows,composer,visualstudiocode
