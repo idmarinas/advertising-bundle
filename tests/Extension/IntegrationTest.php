@@ -22,7 +22,6 @@ use Twig\Test\IntegrationTestCase;
 
 /**
  * @internal
- * @coversNothing
  */
 class IntegrationTest extends IntegrationTestCase
 {

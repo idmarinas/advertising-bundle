@@ -19,7 +19,6 @@ use Nyholm\BundleTest\BaseBundleTestCase;
 
 /**
  * @internal
- * @coversNothing
  */
 class BundleInitializationTest extends BaseBundleTestCase
 {
