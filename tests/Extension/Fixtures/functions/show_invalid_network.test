@@ -1,0 +1,11 @@
+--TEST--
+"advertising_banner" function
+
+--TEMPLATE--
+{{ advertising_banner("invalid_network", "ad_header") }}
+
+--DATA--
+return []
+
+--EXCEPTION--
+Twig\Error\RuntimeError: An exception has been thrown during the rendering of a template ("There is no network called "invalid_network". Available are: adsense") in "index.twig" at line 2.

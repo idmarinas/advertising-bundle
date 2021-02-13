@@ -1,0 +1,4 @@
+dependencies:
+  - any: ['composer.json', 'composer.lock']
+documentation:
+  - 'docs/**/*'

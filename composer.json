@@ -1,0 +1,60 @@
+{
+    "name": "idmarinas/advertising-bundle",
+    "description": "Show network ads in your Symfony App. Come with the Adsense Network and Generic network for add your own network.",
+    "version": "0.1.0",
+    "type": "symfony-bundle",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Iván Diaz Marinas (IDMarinas)",
+            "email": "35842929+idmarinas@users.noreply.github.com",
+            "homepage": "https://github.com/idmarinas/advertising-bundle",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/idmarinas/advertising-bundle/issues"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.1.3",
+        "symfony/config": "^4.4|^5.0",
+        "symfony/dependency-injection": "^4.4|^5.0",
+        "symfony/http-kernel": "^4.4|^5.0",
+        "symfony/yaml": "^4.4|^5.0",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "require-dev": {
+        "matthiasnoback/symfony-config-test": "^4.2",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.2",
+        "nyholm/symfony-bundle-test": "^1.7",
+        "symfony/phpunit-bridge": "^5.2"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Idm\\Bundle\\AdvertisingBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Idm\\Bundle\\AdvertisingBundle\\Tests\\": "tests/"
+        }
+    },
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.me/idmarinas"
+        }
+    ],
+    "scripts": {
+        "test": "simple-phpunit"
+    }
+}

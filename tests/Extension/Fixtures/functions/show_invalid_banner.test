@@ -1,0 +1,10 @@
+--TEST--
+"advertising_banner" function
+
+--TEMPLATE--
+{{ advertising_banner("adsense", "invalid_ad_header") }}
+
+--DATA--
+return []
+
+--EXPECT--
