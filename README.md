@@ -16,7 +16,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/advertising-bundle.svg)
 ![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/advertising-bundle.svg)
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lotgd-game&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=bugs)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=security_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
