@@ -17,11 +17,14 @@ use Idm\Bundle\AdvertisingBundle\IdmAdvertisingBundle;
 use Idm\Bundle\AdvertisingBundle\Twig\Extension\AdvertisingGeneric;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\Kernel;
 use Twig\Test\IntegrationTestCase;
 
 /**
- * Test Twig Extensions
+ * Test Twig Extensions.
+ *
+ * @internal
  */
 class IntegrationTest extends IntegrationTestCase
 {
@@ -30,7 +33,7 @@ class IntegrationTest extends IntegrationTestCase
         $container = $this->getContainer();
 
         return [
-            new AdvertisingGeneric($container->get('idm_advertising.networks.registry')),
+            new AdvertisingGeneric($container->get('idm_advertising.networks.registry'), new EventDispatcher()),
         ];
     }
 
