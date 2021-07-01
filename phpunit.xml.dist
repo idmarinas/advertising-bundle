@@ -6,7 +6,6 @@
     convertDeprecationsToExceptions="false"
     backupGlobals="false"
     colors="true"
-    convertDeprecationsToExceptions="false"
     bootstrap="./vendor/autoload.php"
 >
     <coverage processUncoveredFiles="true">
