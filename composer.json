@@ -1,7 +1,7 @@
 {
     "name": "idmarinas/advertising-bundle",
     "description": "Show network ads in your Symfony App. Come with the Adsense Network and Generic network for add your own network.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "type": "symfony-bundle",
     "license": "BSD-3-Clause",
     "authors": [
@@ -21,6 +21,7 @@
         "php": ">=7.1.3",
         "symfony/config": "^4.4|^5.0",
         "symfony/dependency-injection": "^4.4|^5.0",
+        "symfony/event-dispatcher": "^4.4|^5.0",
         "symfony/http-kernel": "^4.4|^5.0",
         "symfony/yaml": "^4.4|^5.0",
         "twig/twig": "^2.12|^3.0"
