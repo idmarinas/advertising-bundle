@@ -3,16 +3,11 @@
 <!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    colors="true"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    stopOnFailure="false"
-    bootstrap="./vendor/autoload.php"
     convertDeprecationsToExceptions="false"
+    backupGlobals="false"
+    colors="true"
+    convertDeprecationsToExceptions="false"
+    bootstrap="./vendor/autoload.php"
 >
     <coverage processUncoveredFiles="true">
         <include>
@@ -32,7 +27,6 @@
         <ini name="intl.default_locale" value="en" />
         <ini name="intl.error_level" value="0" />
         <ini name="memory_limit" value="-1" />
-        <env name="XDEBUG_MODE" value="coverage"/>
         <ini name="xdebug.mode" value="coverage"/>
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
