@@ -20,15 +20,15 @@ return static function (ContainerConfigurator $container)
 {
     $container->services()
         ->set('idm_advertising.network.adsense', AdsenseNetwork::class)
-        ->public()
+            ->public()
         ->alias(AdsenseNetwork::class, 'idm_advertising.network.adsense')
 
         ->set('idm_advertising.networks.registry', NetworkRegistry::class)
-        ->public()
-        ->args([
-            new ReferenceConfigurator('service_container'),
-            [],
-        ])
+            ->public()
+            ->args([
+                new ReferenceConfigurator('service_container'),
+                [],
+            ])
         ->alias(NetworkRegistry::class, 'idm_advertising.networks.registry')
     ;
 };
