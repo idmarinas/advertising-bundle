@@ -30,7 +30,9 @@
         "matthiasnoback/symfony-config-test": "^4.2",
         "matthiasnoback/symfony-dependency-injection-test": "^4.2",
         "nyholm/symfony-bundle-test": "^1.7",
-        "symfony/phpunit-bridge": "^5.2"
+        "phpunit/phpunit": "^9.5",
+        "symfony/phpunit-bridge": "^5.3",
+        "symfony/test-pack": "^1.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -56,6 +58,6 @@
         }
     ],
     "scripts": {
-        "test": "simple-phpunit"
+        "test": "phpunit"
     }
 }
