@@ -13,17 +13,21 @@
 
 namespace Idm\Bundle\AdvertisingBundle\Twig\Extension;
 
+use Idm\Bundle\AdvertisingBundle\Event\TwigGeneric as EventTwig;
 use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 class AdvertisingGeneric extends AbstractExtension
 {
-    protected $networks;
+    private $networks;
+    private $dispatcher;
 
-    public function __construct(NetworkRegistry $network)
+    public function __construct(NetworkRegistry $network, EventDispatcherInterface $dispatcher)
     {
-        $this->networks = $network;
+        $this->networks   = $network;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -42,20 +46,35 @@ class AdvertisingGeneric extends AbstractExtension
      */
     public function showBanner(string $network, string $adSlot): string
     {
-        $net = $this->networks->getNetwork($network);
-        $ad  = $net->getBanner($adSlot);
+        $event = new EventTwig();
+        $event->setNetwork($network);
+        $event->setSlot($adSlot);
 
-        if ($ad)
+        //-- Allow to select a custom banner
+        $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SELECT_BANNER_PRE);
+
+        $banner = $event->getBanner();
+
+        if ( ! $banner)
         {
-            $this->networks
-                ->setNetworkHasBanners($network)
-                ->addScriptUrl($network, $net->getScriptUrl())
-            ;
+            $net    = $this->networks->getNetwork($event->getNetwork());
+            $banner = $net->getBanner($event->getSlot());
 
-            return $ad;
+            if ($banner)
+            {
+                $this->networks
+                    ->setNetworkHasBanners($network)
+                    ->addScriptUrl($network, $net->getScriptUrl())
+                ;
+            }
         }
 
-        return '';
+        $event->setBanner($banner);
+
+        //-- Allow to overwrite/manipulate/delete banner
+        $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SELECT_BANNER_POST);
+
+        return $event->getBanner();
     }
 
     /**
@@ -63,18 +82,34 @@ class AdvertisingGeneric extends AbstractExtension
      */
     public function showScripts(?string $network = null): string
     {
-        $scripts = $this->networks->getScriptUrl();
+        $event = new EventTwig();
+        $event->setNetwork($network ?: '');
 
-        if (isset($scripts[$network]))
+        $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SHOW_SCRIPTS_PRE);
+
+        $scripts = $event->getScripts();
+
+        if (empty($scripts))
         {
-            $scripts = [$scripts[$network]];
+            $scripts = $this->networks->getScriptUrl();
+
+            if (isset($scripts[$network]))
+            {
+                $scripts = [$scripts[$network]];
+            }
         }
+
+        $event->setScripts($scripts);
+
+        $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SHOW_SCRIPTS_POST);
+
+        $scripts = $event->getScripts();
 
         if (empty($scripts))
         {
             return '';
         }
 
-        return '<script async src="'.\implode('"></script><script async src="', $scripts).'"></script>';
+        return '<script async src="'.implode('"></script><script async src="', $scripts).'"></script>';
     }
 }
