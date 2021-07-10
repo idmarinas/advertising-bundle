@@ -21,6 +21,7 @@ return static function (ContainerConfigurator $container)
         ->set(AdvertisingGeneric::class)
         ->args([
             new ReferenceConfigurator('idm_advertising.networks.registry'),
+            new ReferenceConfigurator('event_dispatcher'),
         ])
         ->tag('twig.extension')
     ;
