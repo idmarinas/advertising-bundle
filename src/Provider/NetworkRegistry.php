@@ -17,14 +17,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class NetworkRegistry
 {
-    /** @var ContainerInterface */
-    private $container;
+    private ContainerInterface $container;
 
-    /** @var array */
-    private $networksMap;
+    private array $networksMap;
 
-    private $scripts            = [];
-    private $networksHasBanners = [];
+    private array $scripts            = [];
+    private array $networksHasBanners = [];
 
     /**
      * Network registry constructor.
@@ -47,13 +45,13 @@ class NetworkRegistry
             $network = $this->container->get($this->networksMap[$key]);
             if ( ! $network instanceof NetworkInterface)
             {
-                throw new \InvalidArgumentException(\sprintf('Somehow the "%s" network is not implement the interface NetworkInterface.', $key));
+                throw new \InvalidArgumentException(sprintf('Somehow the "%s" network is not implement the interface NetworkInterface.', $key));
             }
 
             return $network;
         }
 
-        throw new \InvalidArgumentException(\sprintf('There is no network called "%s". Available are: %s', $key, \implode(', ', \array_keys($this->networksMap))));
+        throw new \InvalidArgumentException(sprintf('There is no network called "%s". Available are: %s', $key, implode(', ', array_keys($this->networksMap))));
     }
 
     /**
@@ -70,14 +68,11 @@ class NetworkRegistry
 
     public function getScriptUrl(): array
     {
-        return \array_filter($this->scripts, function ($val)
-        {
-            return ! (
-                \array_key_exists($val, $this->networksMap)
-                && $this->networkHasBanners($val)
-                && $this->getNetwork($val)->isNetworkEnabled()
-            );
-        });
+        return array_filter($this->scripts, fn ($val) => ! (
+            \array_key_exists($val, $this->networksMap)
+            && $this->networkHasBanners($val)
+            && $this->getNetwork($val)->isNetworkEnabled()
+        ));
     }
 
     /**
@@ -105,6 +100,6 @@ class NetworkRegistry
      */
     public function getEnabledNetworksKeys()
     {
-        return \array_keys($this->networksMap);
+        return array_keys($this->networksMap);
     }
 }

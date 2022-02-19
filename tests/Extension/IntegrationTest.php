@@ -79,7 +79,7 @@ class ExtensionTestingKernel extends Kernel
                         'banners' => [ // Banners of ads (As many as you need with the same format)
                             'ad_header' => [
                                 'style'      => 'display:block', // style="" tag in <ins>
-                                'slot'       => 4555454, //  "data-ad-slot" Slot ID of Ad block 8XXXXX1
+                                'slot'       => 4_555_454, //  "data-ad-slot" Slot ID of Ad block 8XXXXX1
                                 'format'     => 'auto', // "data-ad-format" Values: "rectangle", "vertical" or "horizontal"
                                 'responsive' => true, // "data-full-width-responsive"
                             ],
