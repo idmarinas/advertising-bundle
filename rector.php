@@ -1,13 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 use Rector\CodeQuality\Rector\Array_\CallableThisArrayToAnonymousFunctionRector;
+use Rector\CodeQuality\Rector\If_\ShortenElseIfRector;
 use Rector\CodeQuality\Rector\Include_\AbsolutizeRequireAndIncludePathRector;
-use Rector\Symfony\Set\SymfonySetList;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\Set\SymfonySetList;
 use Rector\Symfony\Set\TwigSetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -17,8 +18,8 @@ return static function (ContainerConfigurator $containerConfigurator): void
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set(Option::PATHS, [
-        __DIR__ . '/src',
-        __DIR__ . '/tests',
+        __DIR__.'/src',
+        __DIR__.'/tests',
     ]);
     $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_73);
 
@@ -37,7 +38,8 @@ return static function (ContainerConfigurator $containerConfigurator): void
     //-- Skip some rules/files ...
     $parameters->set(Option::SKIP, [
         // __DIR__.'/src/core/Twig/NodeVisitor',
+        ShortenElseIfRector::class,
         CallableThisArrayToAnonymousFunctionRector::class,
-        AbsolutizeRequireAndIncludePathRector::class
+        AbsolutizeRequireAndIncludePathRector::class,
     ]);
 };
