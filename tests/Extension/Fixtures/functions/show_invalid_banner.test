@@ -3,6 +3,7 @@
 
 --TEMPLATE--
 {{ advertising_banner("adsense", "invalid_ad_header") }}
+{{ advertising_scripts("adsense") }}
 
 --DATA--
 return []
