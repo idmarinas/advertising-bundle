@@ -41,6 +41,7 @@ jobs:
         run: composer run-script test
 
       - name: Fix paths for Sonar
+        if: matrix.php-version == '7.4'
         working-directory: ./build/reports/
         run: sed -i 's/\/home\/runner\/work\/advertising-bundle\/advertising-bundle\//\/github\/workspace\//g' phpunit.coverage.xml
 
