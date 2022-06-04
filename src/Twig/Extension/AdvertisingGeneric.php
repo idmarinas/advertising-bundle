@@ -33,7 +33,7 @@ class AdvertisingGeneric extends AbstractExtension
     /**
      * {@inheritdoc}
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('advertising_banner', [$this, 'showBanner'], ['is_safe' => ['html']]),
