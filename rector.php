@@ -31,7 +31,6 @@ return static function (ContainerConfigurator $containerConfigurator): void
 
     //-- Symfony Framework
     $containerConfigurator->import(SymfonySetList::SYMFONY_44);
-    $containerConfigurator->import(SymfonySetList::SYMFONY_50);
     $containerConfigurator->import(TwigSetList::TWIG_240);
 
     //-- Skip some rules/files ...
