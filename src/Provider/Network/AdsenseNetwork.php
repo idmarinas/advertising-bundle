@@ -43,6 +43,7 @@ final class AdsenseNetwork extends NetworkAbstract
         return \sprintf(
             '<ins class="adsbygoogle"
                 style="%1$s"
+                %6$s
                 data-ad-client="%2$s"
                 data-ad-slot="%3$s"
                 data-ad-format="%4$s"
@@ -52,8 +53,9 @@ final class AdsenseNetwork extends NetworkAbstract
             $slotConfig['style'] ?? '',
             $config['client'],
             $slotConfig['slot'],
-            $slotConfig['format'],
-            $slotConfig['responsive'] ? 'true' : 'false'
+            ($slotConfig['format'] == 'auto' && $slotConfig['is_in_article']) ? 'fluid' : $slotConfig['format'],
+            $slotConfig['responsive'] ? 'true' : 'false',
+            $slotConfig['is_in_artcle'] ? 'data-ad-layout="in-article"' : ''
         );
     }
 
