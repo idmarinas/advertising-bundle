@@ -55,7 +55,7 @@ final class AdsenseNetwork extends NetworkAbstract
             $slotConfig['slot'],
             ($slotConfig['format'] == 'auto' && $slotConfig['is_in_article']) ? 'fluid' : $slotConfig['format'],
             $slotConfig['responsive'] ? 'true' : 'false',
-            $slotConfig['is_in_artcle'] ? 'data-ad-layout="in-article"' : ''
+            $slotConfig['is_in_article'] ? 'data-ad-layout="in-article"' : ''
         );
     }
 
