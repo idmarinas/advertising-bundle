@@ -37,6 +37,7 @@ class AdsenseNetworkConfiguration implements NetworkConfigurationInterface
                         ->end()
                         ->integerNode('slot')
                             ->min(0)
+                            ->isRequired()
                             ->info('Slot ID of Ad block 8XXXXX1')
                         ->end()
                         ->enumNode('format')
