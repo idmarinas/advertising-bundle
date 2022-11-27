@@ -50,7 +50,7 @@ class AdvertisingGeneric extends AbstractExtension
         $event->setNetwork($network);
         $event->setSlot($adSlot);
 
-        //-- Allow to select a custom banner
+        // -- Allow to select a custom banner
         $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SELECT_BANNER_PRE);
 
         $banner = $event->getBanner();
@@ -73,7 +73,7 @@ class AdvertisingGeneric extends AbstractExtension
             $event->setBanner($banner);
         }
 
-        //-- Allow to overwrite/manipulate/delete banner
+        // -- Allow to overwrite/manipulate/delete banner
         $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SELECT_BANNER_POST);
 
         return $event->getBanner();
