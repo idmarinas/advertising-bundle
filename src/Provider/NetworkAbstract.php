@@ -22,7 +22,7 @@ abstract class NetworkAbstract implements NetworkInterface
     protected bool $advertisingEnable;
 
     /** Config of last slot returned */
-    protected array $lastSlotConfig;
+    protected array $lastSlotConfig = [];
 
     /**
      * {@inheritDoc}
