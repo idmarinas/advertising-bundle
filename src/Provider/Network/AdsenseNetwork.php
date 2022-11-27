@@ -22,12 +22,6 @@ final class AdsenseNetwork extends NetworkAbstract
 
     public function getBanner(string $slot): string
     {
-        // -- If not enable return empty string.
-        if ( ! $this->isNetworkEnabled())
-        {
-            return '';
-        }
-
         $config     = $this->getConfig();
         $slotConfig = $config['banners'][$slot] ?? [];
 
@@ -37,6 +31,12 @@ final class AdsenseNetwork extends NetworkAbstract
         }
 
         $this->setSlotConfig($slotConfig);
+
+        // -- If not enable return empty string.
+        if ( ! $this->isNetworkEnabled())
+        {
+            return '';
+        }
 
         return sprintf(
             '<ins class="adsbygoogle"
