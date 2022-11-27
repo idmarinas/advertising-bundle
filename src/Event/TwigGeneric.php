@@ -17,34 +17,25 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class TwigGeneric extends Event
 {
-    /**
-     * Event that occurs before the banner is selected.
-     */
+    /** Event that occurs before the banner is selected. */
     public const TWIG_GENERIC_SELECT_BANNER_PRE = 'idm.bundle.advertising.twig.generic.select.banner.pre';
 
-    /**
-     * Event that occurs after the banner is selected.
-     */
+    /** Event that occurs after the banner is selected. */
     public const TWIG_GENERIC_SELECT_BANNER_POST = 'idm.bundle.advertising.twig.generic.select.banner.post';
 
-    /**
-     * Event that occurs before the scripts is select.
-     */
+    /** Event that occurs before the scripts is select. */
     public const TWIG_GENERIC_SHOW_SCRIPTS_PRE = 'idm.bundle.advertising.twig.generic.show.scripts.pre';
 
-    /**
-     * Event that occurs after the scripts is selected.
-     */
+    /** Event that occurs after the scripts is selected. */
     public const TWIG_GENERIC_SHOW_SCRIPTS_POST = 'idm.bundle.advertising.twig.generic.show.scripts.post';
 
     private string $banner  = '';
     private string $network = '';
     private string $slot    = '';
     private array $scripts  = [];
+    private array $slotConfig = [];
 
-    /**
-     * Set or reemplace banner selected.
-     */
+    /** Set or reemplace banner selected. */
     public function setBanner(string $banner): self
     {
         $this->banner = $banner;
@@ -52,25 +43,19 @@ class TwigGeneric extends Event
         return $this;
     }
 
-    /**
-     * Get banner selected.
-     */
+    /** Get banner selected. */
     public function getBanner(): string
     {
         return $this->banner;
     }
 
-    /**
-     * Get name of network.
-     */
+    /** Get name of network. */
     public function getNetwork(): string
     {
         return $this->network;
     }
 
-    /**
-     * Set a network.
-     */
+    /** Set a network. */
     public function setNetwork(string $network): self
     {
         $this->network = $network;
@@ -78,17 +63,13 @@ class TwigGeneric extends Event
         return $this;
     }
 
-    /**
-     * Get slot of banner.
-     */
+    /** Get slot of banner. */
     public function getSlot(): string
     {
         return $this->slot;
     }
 
-    /**
-     * Set slot of banner.
-     */
+    /** Set slot of banner. */
     public function setSlot(string $slot): self
     {
         $this->slot = $slot;
@@ -96,17 +77,27 @@ class TwigGeneric extends Event
         return $this;
     }
 
-    /**
-     * Get the scripts.
-     */
+    /** Set config for slot */
+    public function setSlotConfig(array $slotConfig): self
+    {
+        $this->slotConfig = $slotConfig;
+
+        return $this;
+    }
+
+    /** Get config for slot */
+    public function getSlotConfig(): array
+    {
+        return $this->slotConfig;
+    }
+
+    /** Get the scripts. */
     public function getScripts(): array
     {
         return $this->scripts;
     }
 
-    /**
-     * Set/overwrite the scripts.
-     */
+    /** Set/overwrite the scripts. */
     public function setScripts(array $scripts): self
     {
         $this->scripts = $scripts;

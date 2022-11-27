@@ -60,6 +60,8 @@ class AdvertisingGeneric extends AbstractExtension
             $net    = $this->networks->getNetwork($event->getNetwork());
             $banner = $net->getBanner($event->getSlot());
 
+            $event->setSlotConfig($net->getSlotConfig());
+
             if ( ! empty($banner))
             {
                 $this->networks
