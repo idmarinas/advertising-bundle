@@ -29,10 +29,10 @@ class TwigGeneric extends Event
     /** Event that occurs after the scripts is selected. */
     public const TWIG_GENERIC_SHOW_SCRIPTS_POST = 'idm.bundle.advertising.twig.generic.show.scripts.post';
 
-    private string $banner  = '';
-    private string $network = '';
-    private string $slot    = '';
-    private array $scripts  = [];
+    private string $banner    = '';
+    private string $network   = '';
+    private string $slot      = '';
+    private array $scripts    = [];
     private array $slotConfig = [];
 
     /** Set or reemplace banner selected. */
