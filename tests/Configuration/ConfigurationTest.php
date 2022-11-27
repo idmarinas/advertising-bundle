@@ -13,6 +13,7 @@
 
 namespace Idm\Bundle\AdvertisingBundle\Tests\Configuration;
 
+use InvalidArgumentException;
 use Idm\Bundle\AdvertisingBundle\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
@@ -33,7 +34,7 @@ class ConfigurationTest extends TestCase
             );
             $this->assertEquals(true, true);
         }
-        catch (\InvalidArgumentException $e)
+        catch (InvalidArgumentException $e)
         {
             $this->assertInstanceOf('\InvalidArgumentException', $e);
         }
@@ -57,7 +58,7 @@ class ConfigurationTest extends TestCase
             ]);
             $this->assertEquals(true, true);
         }
-        catch (\InvalidArgumentException $e)
+        catch (InvalidArgumentException $e)
         {
             $this->assertInstanceOf('\InvalidArgumentException', $e);
         }

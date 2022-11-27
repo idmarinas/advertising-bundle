@@ -20,9 +20,8 @@ final class AdsenseNetwork extends NetworkAbstract
     /**
      * Indicate if script is rendered.
      *
-     * @var bool
      */
-    protected $scriptRendered = false;
+    protected bool $scriptRendered = false;
 
     public function getBanner(string $slot): string
     {

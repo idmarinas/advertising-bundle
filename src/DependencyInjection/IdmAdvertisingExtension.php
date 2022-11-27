@@ -13,6 +13,8 @@
 
 namespace Idm\Bundle\AdvertisingBundle\DependencyInjection;
 
+use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\AdsenseNetworkConfiguration;
+use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\GenericNetworkConfiguration;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -25,8 +27,8 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 class IdmAdvertisingExtension extends ConfigurableExtension
 {
     private const SUPPORTED_NETWORK_TYPES = [
-        'adsense' => Network\AdsenseNetworkConfiguration::class,
-        'generic' => Network\GenericNetworkConfiguration::class,
+        'adsense' => AdsenseNetworkConfiguration::class,
+        'generic' => GenericNetworkConfiguration::class,
     ];
     protected $configurators = [];
 
