@@ -46,13 +46,20 @@ class NetworkRegistry
             $network = $this->container->get($this->networksMap[$key]);
             if ( ! $network instanceof NetworkInterface)
             {
-                throw new InvalidArgumentException(sprintf('Somehow the "%s" network is not implement the interface NetworkInterface.', $key));
+                throw new InvalidArgumentException(sprintf(
+                    'Somehow the "%s" network is not implement the interface NetworkInterface.',
+                    $key
+                ));
             }
 
             return $network;
         }
 
-        throw new InvalidArgumentException(sprintf('There is no network called "%s". Available are: %s', $key, implode(', ', array_keys($this->networksMap))));
+        throw new InvalidArgumentException(sprintf(
+            'There is no network called "%s". Available are: %s',
+            $key,
+            implode(', ', array_keys($this->networksMap))
+        ));
     }
 
     /**

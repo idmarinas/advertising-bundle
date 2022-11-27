@@ -19,13 +19,12 @@ final class AdsenseNetwork extends NetworkAbstract
 {
     /**
      * Indicate if script is rendered.
-     *
      */
     protected bool $scriptRendered = false;
 
     public function getBanner(string $slot): string
     {
-        //-- If not enable return empty string.
+        // -- If not enable return empty string.
         if ( ! $this->isNetworkEnabled())
         {
             return '';
@@ -39,7 +38,7 @@ final class AdsenseNetwork extends NetworkAbstract
             return '';
         }
 
-        return \sprintf(
+        return sprintf(
             '<ins class="adsbygoogle"
                 style="%1$s"
                 %6$s
@@ -52,7 +51,7 @@ final class AdsenseNetwork extends NetworkAbstract
             $slotConfig['style'] ?? '',
             $config['client'],
             $slotConfig['slot'],
-            ($slotConfig['format'] == 'auto' && $slotConfig['in_article']) ? 'fluid' : $slotConfig['format'],
+            ('auto' == $slotConfig['format'] && $slotConfig['in_article']) ? 'fluid' : $slotConfig['format'],
             $slotConfig['responsive'] ? 'true' : 'false',
             $slotConfig['in_article'] ? 'data-ad-layout="in-article"' : ''
         );
@@ -63,7 +62,10 @@ final class AdsenseNetwork extends NetworkAbstract
      */
     public function isNetworkEnabled(): bool
     {
-        return parent::isNetworkEnabled() && \is_string($this->configuration['client']) && ! empty($this->configuration['client']);
+        return parent::isNetworkEnabled()
+            && \is_string($this->configuration['client'])
+            && ! empty($this->configuration['client'])
+        ;
     }
 
     /**

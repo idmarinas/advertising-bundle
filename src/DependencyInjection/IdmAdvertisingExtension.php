@@ -47,7 +47,10 @@ class IdmAdvertisingExtension extends ConfigurableExtension
         {
             if ( ! isset($networkConfig['type']))
             {
-                throw new InvalidConfigurationException(\sprintf('Your "idm_advertising.networks.%s" config entry is missing the "type" key.', $name));
+                throw new InvalidConfigurationException(\sprintf(
+                    'Your "idm_advertising.networks.%s" config entry is missing the "type" key.',
+                    $name
+                ));
             }
 
             $provider = $networkConfig['type'];
@@ -55,7 +58,11 @@ class IdmAdvertisingExtension extends ConfigurableExtension
 
             if ( ! isset(self::SUPPORTED_NETWORK_TYPES[$provider]))
             {
-                throw new InvalidConfigurationException(\sprintf('The "idm_advertising.networks" config "type" key "%s" is not supported. We support (%s)', $provider, \implode(', ', self::SUPPORTED_NETWORK_TYPES)));
+                throw new InvalidConfigurationException(\sprintf(
+                    'The "idm_advertising.networks" config "type" key "%s" is not supported. We support (%s)',
+                    $provider,
+                    \implode(', ', self::SUPPORTED_NETWORK_TYPES)
+                ));
             }
 
             //-- Process configuration
