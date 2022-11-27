@@ -46,7 +46,7 @@ class AdsenseNetworkConfiguration implements NetworkConfigurationInterface
                         ->end()
                         ->enumNode('format')
                             ->info('Format of Ad, can be: auto, rectangle, vertical, horizontal')
-                            ->values(['auto', 'rectangle', 'vertical', 'horizontal'])
+                            ->values(['auto', 'rectangle', 'vertical', 'horizontal', 'fluid'])
                             ->defaultValue('auto')
                         ->end()
                         ->booleanNode('responsive')
