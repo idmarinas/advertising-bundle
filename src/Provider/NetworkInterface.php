@@ -28,12 +28,12 @@ interface NetworkInterface
     /**
      * Enable advertising bundle.
      */
-    public function enableAdvertising();
+    public function enableAdvertising(): self;
 
     /**
      * Disable advertising bundle.
      */
-    public function disableAdvertising();
+    public function disableAdvertising(): self;
 
     /**
      * Add configuration for provider.
@@ -54,4 +54,7 @@ interface NetworkInterface
      * Get script of provider Advertising.
      */
     public function getScriptUrl(): string;
+
+    /** Get Config of last slot returned */
+    public function getSlotConfig(): array;
 }

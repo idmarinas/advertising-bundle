@@ -15,19 +15,14 @@ namespace Idm\Bundle\AdvertisingBundle\Provider;
 
 abstract class NetworkAbstract implements NetworkInterface
 {
-    /**
-     * Configuration for Network.
-     *
-     * @var array
-     */
-    protected $configuration;
+    /** Configuration for Network. */
+    protected array $configuration;
 
-    /**
-     * Indicate if advertising bundle is enable or disabled.
-     *
-     * @var bool
-     */
-    protected $advertisingEnable;
+    /** Indicate if advertising bundle is enable or disabled. */
+    protected bool $advertisingEnable;
+
+    /** Config of last slot returned */
+    protected array $lastSlotConfig;
 
     /**
      * {@inheritDoc}
@@ -86,5 +81,23 @@ abstract class NetworkAbstract implements NetworkInterface
     public function getConfig(): array
     {
         return $this->configuration;
+    }
+
+    /**
+     * Set Config of last slot returned.
+     */
+    protected function setSlotConfig(array $slotConfig): self
+    {
+        $this->lastSlotConfig = $slotConfig;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSlotConfig(): array
+    {
+        return $this->lastSlotConfig;
     }
 }

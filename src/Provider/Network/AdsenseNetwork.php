@@ -17,9 +17,7 @@ use Idm\Bundle\AdvertisingBundle\Provider\NetworkAbstract;
 
 final class AdsenseNetwork extends NetworkAbstract
 {
-    /**
-     * Indicate if script is rendered.
-     */
+    /** Indicate if script is rendered. */
     protected bool $scriptRendered = false;
 
     public function getBanner(string $slot): string
@@ -37,6 +35,8 @@ final class AdsenseNetwork extends NetworkAbstract
         {
             return '';
         }
+
+        $this->setSlotConfig($slotConfig);
 
         return sprintf(
             '<ins class="adsbygoogle"
