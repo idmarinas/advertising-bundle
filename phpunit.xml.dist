@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
     backupGlobals="false"
-    backupStaticAttributes="false"
     colors="true"
-    processIsolation="false"
-    stopOnFailure="false"
     bootstrap="./vendor/autoload.php"
+    convertDeprecationsToExceptions="false"
 >
     <php>
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
+        <!-- <ini name="display_errors" value="1" /> -->
         <ini name="error_reporting" value="-1" />
-        <ini name="intl.default_locale" value="en" />
-        <ini name="intl.error_level" value="0" />
-        <ini name="memory_limit" value="-1" />
+        <server name="APP_ENV" value="test" force="true" />
+        <server name="SHELL_VERBOSITY" value="-1" />
+        <server name="SYMFONY_PHPUNIT_REMOVE" value="" />
+        <server name="SYMFONY_PHPUNIT_VERSION" value="9.5" />
     </php>
 
     <testsuites>
         <testsuite name="AdvertisingBundle Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+
+        <report>
+            <clover outputFile="./build/reports/phpunit.coverage.xml"/>
+            <!-- <html outputDirectory="./build/coverage" lowUpperBound="35" highLowerBound="70" /> -->
+            <!-- <text outputFile="php://stdout" showUncoveredFiles="false"/> -->
+        </report>
+    </coverage>
+
     <logging>
-        <log type="coverage-html"
-            target="./build/coverage"
-            lowUpperBound="35"
-            highLowerBound="70"/>
-        <log type="coverage-clover"
-            target="./build/reports/phpunit.coverage.xml"/>
-        <log type="junit"
-            target="./build/reports/phpunit.xml"/>
-        <log type="coverage-text"
-            target="php://stdout"
-            showUncoveredFiles="false"/>
+        <junit outputFile="./build/reports/phpunit.xml"/>
     </logging>
 
-    <filter>
-        <whitelist>
-            <directory>./src</directory>
-        </whitelist>
-    </filter>
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+    </listeners>
+
+    <!-- Run `composer require symfony/panther` before enabling this extension -->
+    <!--
+    <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
+    </extensions>
+    -->
 </phpunit>
