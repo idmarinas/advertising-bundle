@@ -10,6 +10,7 @@ return []
 --EXPECT--
 <ins class="adsbygoogle"
                 style="display:block"
+                
                 data-ad-client="ca-pub-XXXXXXX11XXX9"
                 data-ad-slot="4555454"
                 data-ad-format="auto"
