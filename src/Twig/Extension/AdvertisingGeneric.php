@@ -69,9 +69,9 @@ class AdvertisingGeneric extends AbstractExtension
                     ->addScriptUrl($network, $net->getScriptUrl())
                 ;
             }
-        }
 
-        $event->setBanner($banner);
+            $event->setBanner($banner);
+        }
 
         //-- Allow to overwrite/manipulate/delete banner
         $this->dispatcher->dispatch($event, EventTwig::TWIG_GENERIC_SELECT_BANNER_POST);
