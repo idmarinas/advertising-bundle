@@ -15,6 +15,6 @@ namespace Idm\Bundle\AdvertisingBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class IdmAdvertisingBundle extends Bundle
+final class IdmAdvertisingBundle extends Bundle
 {
 }
