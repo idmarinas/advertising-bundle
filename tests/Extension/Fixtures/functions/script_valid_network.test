@@ -10,7 +10,8 @@
 return []
 
 --EXPECT--
-<ins class="adsbygoogle"
+<ins
+                class="adsbygoogle "
                 style="display:block"
                 
                 data-ad-client="ca-pub-XXXXXXX11XXX9"
@@ -18,5 +19,4 @@ return []
                 data-ad-format="auto"
                 data-full-width-responsive="true"></ins>
             <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-            
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
