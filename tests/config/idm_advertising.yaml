@@ -3,6 +3,7 @@ idm_advertising:
     networks:
         adsense: # Default configuration for AdSense Advertising
             type: adsense
+            client: 'ca-pub-XXXXXXX11XXX9'
             # service_provider: idm_advertising.adsense # Custom service provider, ID of service
             enable: true # Enable/disable advertising provider
             # client: 'dddddddd' # "data-ad-client" ca-pub-XXXXXXX11XXX9
