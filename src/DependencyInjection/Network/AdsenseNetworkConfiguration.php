@@ -21,6 +21,7 @@ class AdsenseNetworkConfiguration implements NetworkConfigurationInterface
     {
         $node
             ->scalarNode('client')
+                ->isRequired()
                 ->info('Publisher identificator like: ca-pub-XXXXXXX11XXX9')
             ->end()
             ->scalarNode('service_network')
