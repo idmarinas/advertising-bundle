@@ -39,21 +39,21 @@ final class AdsenseNetwork extends NetworkAbstract
         }
 
         return sprintf(
-            '<ins class="adsbygoogle"
+            '<ins class="adsbygoogle %7$s"
                 style="%1$s"
                 %6$s
                 data-ad-client="%2$s"
                 data-ad-slot="%3$s"
                 data-ad-format="%4$s"
                 data-full-width-responsive="%5$s"></ins>
-            <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
-            ',
+            <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>',
             $slotConfig['style'] ?? '',
             $config['client'],
             $slotConfig['slot'],
             ('auto' == $slotConfig['format'] && $slotConfig['in_article']) ? 'fluid' : $slotConfig['format'],
             $slotConfig['responsive'] ? 'true' : 'false',
-            $slotConfig['in_article'] ? 'data-ad-layout="in-article"' : ''
+            $slotConfig['in_article'] ? 'data-ad-layout="in-article"' : '',
+            $slotConfig['class'],
         );
     }
 
