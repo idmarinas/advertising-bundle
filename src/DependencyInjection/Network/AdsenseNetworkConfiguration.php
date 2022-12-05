@@ -39,6 +39,7 @@ class AdsenseNetworkConfiguration implements NetworkConfigurationInterface
                         ->end()
                         ->scalarNode('style')
                             ->info('Style for block in <ins style="display:inline-block">')
+                            ->defaultValue('')
                         ->end()
                         ->integerNode('slot')
                             ->min(0)
