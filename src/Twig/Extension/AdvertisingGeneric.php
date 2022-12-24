@@ -112,6 +112,15 @@ class AdvertisingGeneric extends AbstractExtension
             return '';
         }
 
-        return '<script async src="'.implode('"></script><script async src="', $scripts).'"></script>';
+        $attributes = array_filter([
+            'nonce' => (string) $event->getNonce(),
+        ]);
+
+        $attributes = urldecode(http_build_query(array_map(fn($v) => '"'.$v.'"', $attributes), '', ' '));
+
+        return sprintf(
+            '<script %1$s async src="'.implode('"></script><script %1$s async src="', $scripts).'"></script>',
+            $attributes
+        );
     }
 }

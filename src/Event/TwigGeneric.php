@@ -34,6 +34,7 @@ class TwigGeneric extends Event
     private string $slot      = '';
     private array $scripts    = [];
     private array $slotConfig = [];
+    private string $nonce     = '';
 
     /** Set or reemplace banner selected. */
     public function setBanner(string $banner): self
@@ -101,6 +102,20 @@ class TwigGeneric extends Event
     public function setScripts(array $scripts): self
     {
         $this->scripts = $scripts;
+
+        return $this;
+    }
+
+    /** Get nonce (CSP) string */
+    public function getNonce(): string
+    {
+        return $this->nonce;
+    }
+
+    /** Set a nonce string for CSP script/style */
+    public function setNonce(string $nonce): self
+    {
+        $this->nonce = $nonce;
 
         return $this;
     }
