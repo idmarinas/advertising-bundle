@@ -15,34 +15,45 @@ namespace Idm\Bundle\AdvertisingBundle\Tests;
 
 use Idm\Bundle\AdvertisingBundle\IdmAdvertisingBundle;
 use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
-use Nyholm\BundleTest\BaseBundleTestCase;
+use Nyholm\BundleTest\TestKernel;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\HttpKernel\KernelInterface;
 
-/**
- * @internal
- */
-class BundleInitializationTest extends BaseBundleTestCase
+class BundleInitializationTest extends KernelTestCase
 {
-    public function testInitBundle()
+    public function testInitBundle(): void
     {
-        // Create a new Kernel
-        $kernel = $this->createKernel();
-
-        // Add some configuration
-        $kernel->addConfigFile(__DIR__.'/config/idm_advertising.yaml');
-
         // Boot the kernel.
-        $this->bootKernel();
+        $kernel = self::bootKernel();
 
         // Get the container
-        $container = $this->getContainer();
+        $container = $kernel->getContainer();
 
-        // Test if you services exists
+        $this->assertTrue(true);
+        // Or for FrameworkBundle@^5.3.6 to access private services without the PublicCompilerPass
+        // $container = self::getContainer();
+
+        // Test if your services exists
         $this->assertTrue($container->has('idm_advertising.networks.registry'));
-        $this->assertInstanceOf(NetworkRegistry::class, $container->get('idm_advertising.networks.registry'));
+        $service = $container->get('idm_advertising.networks.registry');
+        $this->assertInstanceOf(NetworkRegistry::class, $service);
     }
 
-    protected function getBundleClass()
+    protected static function getKernelClass(): string
     {
-        return IdmAdvertisingBundle::class;
+        return TestKernel::class;
+    }
+
+    protected static function createKernel(array $options = []): KernelInterface
+    {
+        /**
+         * @var TestKernel $kernel
+         */
+        $kernel = parent::createKernel($options);
+        $kernel->addTestBundle(IdmAdvertisingBundle::class);
+        $kernel->handleOptions($options);
+        $kernel->addTestConfig(__DIR__.'/config/idm_advertising.yaml');
+
+        return $kernel;
     }
 }
