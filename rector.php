@@ -28,6 +28,7 @@ return static function (RectorConfig $rectorConfig): void
     $rectorConfig->import(LevelSetList::UP_TO_PHP_74);
     $rectorConfig->import(SetList::PHP_80);
     $rectorConfig->import(SetList::PHP_81);
+    $rectorConfig->import(SetList::PHP_82);
 
     // -- Symfony Framework
     $rectorConfig->import(SymfonyLevelSetList::UP_TO_SYMFONY_44);
