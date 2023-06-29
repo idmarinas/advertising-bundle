@@ -5,7 +5,8 @@
 ![GitHub release](https://img.shields.io/github/release/idmarinas/advertising-bundle.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/advertising-bundle.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/advertising-bundle)
-[![Build in PHP](https://img.shields.io/badge/PHP-^7.2-8892BF.svg?logo=php)](http://php.net/)
+[![Build in PHP](https://img.shields.io/badge/PHP-^7.4-8892BF.svg?logo=php)](http://php.net/)
+[![Build in PHP](https://img.shields.io/badge/PHP-^8.0-8892BF.svg?logo=php)](http://php.net/)
 
 ![GitHub issues](https://img.shields.io/github/issues/idmarinas/advertising-bundle.svg)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/advertising-bundle.svg)
