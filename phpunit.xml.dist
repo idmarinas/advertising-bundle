@@ -28,7 +28,7 @@
         </include>
 
         <report>
-            <clover outputFile="./build/reports/phpunit.coverage.xml"/>
+            <clover outputFile="./build/reports/phpunit.coverage.xml" />
             <!-- <html outputDirectory="./build/coverage" lowUpperBound="35" highLowerBound="70" /> -->
             <!-- <text outputFile="php://stdout" showUncoveredFiles="false"/> -->
         </report>
