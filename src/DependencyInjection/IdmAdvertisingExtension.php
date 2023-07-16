@@ -32,7 +32,7 @@ class IdmAdvertisingExtension extends ConfigurableExtension
     ];
     protected $configurators = [];
 
-    public function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    public function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $loader = new PhpFileLoader($container, new FileLocator(\dirname(__DIR__).'/Resources/config'));
 
@@ -101,7 +101,7 @@ class IdmAdvertisingExtension extends ConfigurableExtension
         return $config['service_network'];
     }
 
-    private function buildConfigurationForProviderType(NodeDefinition $node, $provider)
+    private function buildConfigurationForProviderType(NodeDefinition $node, $provider): void
     {
         $optionsNode = $node
             ->fixXmlConfig('banner')
