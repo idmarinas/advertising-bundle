@@ -27,8 +27,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 class IdmAdvertisingExtension extends ConfigurableExtension
 {
     private const SUPPORTED_NETWORK_TYPES = [
-        'adsense' => AdsenseNetworkConfiguration::class,
         'generic' => GenericNetworkConfiguration::class,
+        'adsense' => AdsenseNetworkConfiguration::class,
+        'cpmstar' => CpmStarNetworkConfiguration::class,
     ];
     protected $configurators = [];
 
@@ -86,8 +87,11 @@ class IdmAdvertisingExtension extends ConfigurableExtension
      * @param array $config      Configuration for Network
      * @param bool  $advertising enable Advertisin bundle enabled/disabled
      */
-    private function configureNetworkAndService(ContainerBuilder $container, array $config, bool $advertisingEnable): string
-    {
+    private function configureNetworkAndService(
+        ContainerBuilder $container,
+        array $config,
+        bool $advertisingEnable
+    ): string {
         $definition = $container->getDefinition($config['service_network']);
         $definition->addMethodCall('configure', [$config]);
 
