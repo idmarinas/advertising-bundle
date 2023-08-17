@@ -54,7 +54,7 @@ idm_advertising:
     networks: # Required
         adsense: # Default configuration for AdSense Advertising
             type: adsense
-            # service_provider: idm_advertising.adsense # Custom service provider, ID of service
+            # service_network: idm_advertising.adsense # Custom service provider, ID of service
             enable: true # Enable/disable advertising provider
             client: null # "data-ad-client" ca-pub-XXXXXXX11XXX9
             banners: # Banners of ads (As many as you need with the same format). Required
@@ -70,7 +70,7 @@ idm_advertising:
                     responsive: true
         generic: 
             type: generic # Required
-            service_provider: 'your.service.id' # Required
+            service_network: 'your.service.id' # Required
             banners: # Required
                 custom_zone: 
                     config: 'for your custom network banner'
