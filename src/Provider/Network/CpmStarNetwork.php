@@ -23,6 +23,17 @@ final class CpmStarNetwork extends NetworkAbstract
         $config     = $this->getConfig();
         $slotConfig = $config['banners'][$slot] ?? [];
 
+        if (empty($slotConfig) || ! $slotConfig['cpmstar_pid'])
+        {
+            return '';
+        }
+
+        // -- If not enable return empty string.
+        if ( ! $this->isNetworkEnabled())
+        {
+            return '';
+        }
+
         return sprintf('<script src="//server.cpmstar.com/view.aspx?poolid=%1$s&script=1&rnd=%2$s"></script>',
             $slotConfig['cpmstar_pid'] ?? 0,
             random_int(100000, 999999)
