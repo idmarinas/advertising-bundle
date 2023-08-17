@@ -14,6 +14,7 @@
 namespace Idm\Bundle\AdvertisingBundle\DependencyInjection;
 
 use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\AdsenseNetworkConfiguration;
+use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\CpmStarNetworkConfiguration;
 use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\GenericNetworkConfiguration;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
