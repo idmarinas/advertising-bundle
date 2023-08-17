@@ -14,6 +14,7 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Idm\Bundle\AdvertisingBundle\Provider\Network\AdsenseNetwork;
+use Idm\Bundle\AdvertisingBundle\Provider\Network\CpmStarNetwork;
 use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
 
 return static function (ContainerConfigurator $container)
@@ -22,6 +23,10 @@ return static function (ContainerConfigurator $container)
         ->set('idm_advertising.network.adsense', AdsenseNetwork::class)
             ->public()
         ->alias(AdsenseNetwork::class, 'idm_advertising.network.adsense')
+
+        ->set('idm_advertising.network.cpmstar', CpmStarNetwork::class)
+            ->public()
+        ->alias(CpmStarNetwork::class, 'idm_advertising.network.cpmstar')
 
         ->set('idm_advertising.networks.registry', NetworkRegistry::class)
             ->public()
