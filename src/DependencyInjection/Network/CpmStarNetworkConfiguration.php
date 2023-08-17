@@ -15,7 +15,7 @@ namespace Idm\Bundle\AdvertisingBundle\DependencyInjection\Network;
 
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 
-class AdsenseNetworkConfiguration implements NetworkConfigurationInterface
+class CpmStarNetworkConfiguration implements NetworkConfigurationInterface
 {
     public function buildConfiguration(NodeBuilder $node)
     {
