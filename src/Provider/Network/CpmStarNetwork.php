@@ -23,8 +23,7 @@ final class CpmStarNetwork extends NetworkAbstract
         $config     = $this->getConfig();
         $slotConfig = $config['banners'][$slot] ?? [];
 
-        return sprintf('<script language="Javascript"
-            src="//server.cpmstar.com/view.aspx?poolid=%1$s&script=1&rnd=%2$s"></script>',
+        return sprintf('<script src="//server.cpmstar.com/view.aspx?poolid=%1$s&script=1&rnd=%2$s"></script>',
             $slotConfig['cpmstar_pid'] ?? 0,
             random_int(100000, 999999)
         );
@@ -35,10 +34,3 @@ final class CpmStarNetwork extends NetworkAbstract
         return '';
     }
 }
-
-
-// <SCRIPT language="Javascript">
-// var cpmstar_rnd=Math.round(Math.random()*999999);
-// var cpmstar_pid=54963;
-// document.writeln("<SCR"+"IPT language='Javascript' src='//server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");
-// </SCRIPT>
