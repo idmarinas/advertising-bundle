@@ -73,6 +73,8 @@ final class AdsenseNetwork extends NetworkAbstract
      */
     public function getScriptUrl(): string
     {
-        return 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        $config = $this->getConfig();
+
+        return 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='.$config['client'];
     }
 }
