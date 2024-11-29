@@ -3,12 +3,12 @@
 /**
  * This file is part of Bundle "IDM Advertising Bundle".
  *
- * @see https://github.com/idmarinas/advertising-bundle
+ * @see     https://github.com/idmarinas/advertising-bundle
  *
  * @license https://github.com/idmarinas/advertising-bundle/blob/master/LICENSE.txt
- * @author IDMarinas
+ * @author  IDMarinas
  *
- * @since 0.1.0
+ * @since   0.1.0
  */
 
 namespace Idm\Bundle\Advertising\Tests\Configuration;
@@ -22,49 +22,32 @@ use PHPUnit\Framework\TestCase;
  */
 class ConfigurationTest extends TestCase
 {
-    use ConfigurationTestCaseTrait;
+	use ConfigurationTestCaseTrait;
 
-    public function testConfigurationWhenIsInvalid(): void
-    {
-        try
-        {
-            $this->assertConfigurationIsInvalid([],
-                'networks'
-            );
-            $this->assertEquals(true, true);
-        }
-        catch (InvalidArgumentException $e)
-        {
-            $this->assertInstanceOf('\InvalidArgumentException', $e);
-        }
-    }
+	public function testConfigurationWhenIsInvalid (): void
+	{
+		$this->assertConfigurationIsInvalid([[]], 'networks');
+	}
 
-    public function testConfigurationWhenGenericIsValid(): void
-    {
-        try
-        {
-            $this->assertConfigurationIsValid([
-                'enable'   => true,
-                'networks' => [
-                    'test_network' => [
-                        'type'    => 'generic',
-                        'enable'  => true,
-                        'banners' => [
-                            'header' => [],
-                        ],
-                    ],
-                ],
-            ]);
-            $this->assertEquals(true, true);
-        }
-        catch (InvalidArgumentException $e)
-        {
-            $this->assertInstanceOf('\InvalidArgumentException', $e);
-        }
-    }
+	public function testConfigurationWhenGenericIsValid (): void
+	{
+		$conf = [
+			'enable'   => true,
+			'networks' => [
+				'test_network' => [
+					'type'    => 'generic',
+					'enable'  => true,
+					'banners' => [
+						'header' => [],
+					],
+				],
+			],
+		];
+		$this->assertConfigurationIsValid([$conf]);
+	}
 
-    protected function getConfiguration(): Configuration
-    {
-        return new Configuration();
-    }
+	protected function getConfiguration (): Configuration
+	{
+		return new Configuration();
+	}
 }
