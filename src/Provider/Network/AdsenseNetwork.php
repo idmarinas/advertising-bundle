@@ -11,9 +11,9 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Provider\Network;
+namespace Idm\Bundle\Advertising\Provider\Network;
 
-use Idm\Bundle\AdvertisingBundle\Provider\NetworkAbstract;
+use Idm\Bundle\Advertising\Provider\NetworkAbstract;
 
 final class AdsenseNetwork extends NetworkAbstract
 {
