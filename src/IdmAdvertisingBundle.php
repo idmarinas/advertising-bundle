@@ -11,7 +11,7 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle;
+namespace Idm\Bundle\Advertising;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

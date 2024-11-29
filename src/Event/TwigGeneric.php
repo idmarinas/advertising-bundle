@@ -11,7 +11,7 @@
  * @since 0.2.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Event;
+namespace Idm\Bundle\Advertising\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 

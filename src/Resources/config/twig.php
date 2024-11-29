@@ -13,7 +13,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Idm\Bundle\AdvertisingBundle\Twig\Extension\AdvertisingGeneric;
+use Idm\Bundle\Advertising\Twig\Extension\AdvertisingGeneric;
 
 return static function (ContainerConfigurator $container)
 {

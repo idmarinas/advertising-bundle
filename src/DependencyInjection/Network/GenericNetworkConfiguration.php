@@ -11,7 +11,7 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\DependencyInjection\Network;
+namespace Idm\Bundle\Advertising\DependencyInjection\Network;
 
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 

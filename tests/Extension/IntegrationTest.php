@@ -11,10 +11,10 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Tests\Extension;
+namespace Idm\Bundle\Advertising\Tests\Extension;
 
-use Idm\Bundle\AdvertisingBundle\IdmAdvertisingBundle;
-use Idm\Bundle\AdvertisingBundle\Twig\Extension\AdvertisingGeneric;
+use Idm\Bundle\Advertising\IdmAdvertisingBundle;
+use Idm\Bundle\Advertising\Twig\Extension\AdvertisingGeneric;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\EventDispatcher\EventDispatcher;

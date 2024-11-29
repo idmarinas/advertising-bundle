@@ -11,7 +11,7 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Provider;
+namespace Idm\Bundle\Advertising\Provider;
 
 use InvalidArgumentException;
 use Symfony\Component\DependencyInjection\ContainerInterface;

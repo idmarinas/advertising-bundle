@@ -11,10 +11,10 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Tests;
+namespace Idm\Bundle\Advertising\Tests;
 
-use Idm\Bundle\AdvertisingBundle\IdmAdvertisingBundle;
-use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
+use Idm\Bundle\Advertising\IdmAdvertisingBundle;
+use Idm\Bundle\Advertising\Provider\NetworkRegistry;
 use Nyholm\BundleTest\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;

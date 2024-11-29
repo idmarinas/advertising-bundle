@@ -11,10 +11,9 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Tests\Configuration;
+namespace Idm\Bundle\Advertising\Tests\Configuration;
 
-use InvalidArgumentException;
-use Idm\Bundle\AdvertisingBundle\DependencyInjection\Configuration;
+use Idm\Bundle\Advertising\DependencyInjection\Configuration;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 

@@ -11,10 +11,10 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\Twig\Extension;
+namespace Idm\Bundle\Advertising\Twig\Extension;
 
-use Idm\Bundle\AdvertisingBundle\Event\TwigGeneric as EventTwig;
-use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
+use Idm\Bundle\Advertising\Event\TwigGeneric as EventTwig;
+use Idm\Bundle\Advertising\Provider\NetworkRegistry;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;

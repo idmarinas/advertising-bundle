@@ -11,11 +11,11 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\DependencyInjection;
+namespace Idm\Bundle\Advertising\DependencyInjection;
 
-use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\AdsenseNetworkConfiguration;
-use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\CpmStarNetworkConfiguration;
-use Idm\Bundle\AdvertisingBundle\DependencyInjection\Network\GenericNetworkConfiguration;
+use Idm\Bundle\Advertising\DependencyInjection\Network\AdsenseNetworkConfiguration;
+use Idm\Bundle\Advertising\DependencyInjection\Network\CpmStarNetworkConfiguration;
+use Idm\Bundle\Advertising\DependencyInjection\Network\GenericNetworkConfiguration;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;

@@ -13,9 +13,9 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Idm\Bundle\AdvertisingBundle\Provider\Network\AdsenseNetwork;
-use Idm\Bundle\AdvertisingBundle\Provider\Network\CpmStarNetwork;
-use Idm\Bundle\AdvertisingBundle\Provider\NetworkRegistry;
+use Idm\Bundle\Advertising\Provider\Network\AdsenseNetwork;
+use Idm\Bundle\Advertising\Provider\Network\CpmStarNetwork;
+use Idm\Bundle\Advertising\Provider\NetworkRegistry;
 
 return static function (ContainerConfigurator $container)
 {

@@ -11,7 +11,7 @@
  * @since 0.1.0
  */
 
-namespace Idm\Bundle\AdvertisingBundle\DependencyInjection;
+namespace Idm\Bundle\Advertising\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
