@@ -2,50 +2,52 @@
 
 <!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-    backupGlobals="false"
-    colors="true"
-    bootstrap="./vendor/autoload.php"
-    convertDeprecationsToExceptions="false"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         colors="true"
+         bootstrap="./vendor/autoload.php"
 >
-    <php>
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
-        <ini name="error_reporting" value="-1" />
-        <ini name="intl.default_locale" value="en" />
-        <ini name="intl.error_level" value="0" />
-        <ini name="memory_limit" value="-1" />
-    </php>
+	<php>
+		<!-- <ini name="display_errors" value="1" /> -->
+		<env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
+		<ini name="error_reporting" value="-1" />
+		<ini name="intl.default_locale" value="en" />
+		<ini name="intl.error_level" value="0" />
+		<ini name="memory_limit" value="-1" />
+		<server name="APP_ENV" value="test" force="true" />
+		<server name="SHELL_VERBOSITY" value="-1" />
+		<server name="SYMFONY_PHPUNIT_REMOVE" value="" />
+		<server name="SYMFONY_PHPUNIT_VERSION" value="9.5" />
+	</php>
 
-    <testsuites>
-        <testsuite name="AdvertisingBundle Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
+	<testsuites>
+		<testsuite name="IDMarinas Advertising Bundle Test Suite">
+			<directory>tests</directory>
+		</testsuite>
+	</testsuites>
 
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
+	<coverage processUncoveredFiles="true">
+		<include>
+			<directory suffix=".php">src</directory>
+		</include>
 
-        <report>
-            <clover outputFile="./build/reports/phpunit.coverage.xml" />
-            <!-- <html outputDirectory="./build/coverage" lowUpperBound="35" highLowerBound="70" /> -->
-            <!-- <text outputFile="php://stdout" showUncoveredFiles="false"/> -->
-        </report>
-    </coverage>
+		<exclude>
+			<!-- <directory>src/Repository/PatchNotes/data</directory> -->
+			<directory>src/DataFixtures</directory>
+			<!-- <directory>src/Repository</directory> -->
+		</exclude>
 
-    <logging>
-        <junit outputFile="./build/reports/phpunit.xml"/>
-    </logging>
+		<report>
+			<clover outputFile="./build/reports/phpunit.coverage.xml" />
+			<!-- <html outputDirectory="./build/coverage" lowUpperBound="35" highLowerBound="70" /> -->
+			<!-- <text outputFile="php://stdout" showUncoveredFiles="false"/> -->
+		</report>
+	</coverage>
 
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-    </listeners>
+	<logging>
+		<junit outputFile="./build/reports/phpunit.xml" />
+	</logging>
 
-    <!-- Run `composer require symfony/panther` before enabling this extension -->
-    <!--
-    <extensions>
-        <extension class="Symfony\Component\Panther\ServerExtension" />
-    </extensions>
-    -->
+	<listeners>
+		<listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+	</listeners>
 </phpunit>
