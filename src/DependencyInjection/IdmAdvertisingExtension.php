@@ -32,7 +32,7 @@ class IdmAdvertisingExtension extends ConfigurableExtension
         'adsense' => AdsenseNetworkConfiguration::class,
         'cpmstar' => CpmStarNetworkConfiguration::class,
     ];
-    protected $configurators = [];
+    protected array $configurators = [];
 
     public function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
