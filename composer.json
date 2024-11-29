@@ -43,12 +43,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Idm\\Bundle\\AdvertisingBundle\\": "src/"
+            "Idm\\Bundle\\Advertising\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Idm\\Bundle\\AdvertisingBundle\\Tests\\": "tests/"
+            "Idm\\Bundle\\Advertising\\Tests\\": "tests/"
         }
     },
     "funding": [
