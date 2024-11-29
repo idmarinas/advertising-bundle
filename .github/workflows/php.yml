@@ -1,7 +1,8 @@
-name: Test Suite
+name: IDMarinas Advertising Bundle Test Suite
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
   push:
     branches:
       - main
@@ -13,35 +14,29 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest ]
-        php: [ '7.4', '8.0', '8.1', '8.2' ]
-        symfony: ['4.4.*', '5.4.*', '6.1.*', '6.2.*', '6.3.*', '6.4.*', '7.0.*']
+        php: [ '8.0', '8.1', '8.2', '8.3', '8.4' ]
+        symfony: [ '5.4.*', '6.4.*', '7.0.*', '7.1.*' ]
 
         exclude:
-          - php: '7.4'
-            symfony: '6.1.*'
-          - php: '7.4'
-            symfony: '6.2.*'
-          - php: '7.4'
-            symfony: '6.3.*'
-          - php: '7.4'
-            symfony: '6.4.*'
-          - php: '7.4'
-            symfony: '7.0.*'
-          - php: '8.0'
-            symfony: '6.1.*'
-          - php: '8.0'
-            symfony: '6.2.*'
-          - php: '8.0'
-            symfony: '6.3.*'
           - php: '8.0'
             symfony: '6.4.*'
           - php: '8.0'
             symfony: '7.0.*'
+          - php: '8.0'
+            symfony: '7.1.*'
+          - php: '8.0'
+            symfony: '7.2.*'
           - php: '8.1'
             symfony: '7.0.*'
+          - php: '8.1'
+            symfony: '7.1.*'
+          - php: '8.1'
+            symfony: '7.2.*'
 
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: ${{ (matrix.php == '8.0' && matrix.symfony == '5.4.*') && '0' || '1' }}
 
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -56,3 +51,15 @@ jobs:
 
       - name: Run test suite on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
         run: ./vendor/bin/phpunit
+
+      - name: Fix paths for Sonar
+        if: matrix.php == '8.0' && matrix.symfony == '5.4.*'
+        working-directory: ./build/reports/
+        run: sed -i 's/\/home\/runner\/work\/advertising-bundle\/advertising-bundle\//\/github\/workspace\//g' phpunit.coverage.xml
+
+      - name: SonarCloud Scan
+        if: matrix.php == '8.0' && matrix.symfony == '5.4.*'
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
