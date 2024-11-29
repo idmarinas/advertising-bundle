@@ -1,0 +1,6 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="#set(&amp;#36;dateYear = &amp;#36;originalComment.match(&quot;@date +([a-zA-Z]* \d+)&quot;,1,&quot;&quot;))&#10;#set(&amp;#36;version = &amp;#36;originalComment.match(&quot;@since +(\d+\.\d+\.\d+)&quot;,1,&quot;&quot;))&#10;Copyright &amp;#36;originalComment.match(&quot;Copyright (\d+)&quot;, 1, &quot;-&quot;,&amp;#36;today.year)&amp;#36;today.year (C) IDMarinas - All Rights Reserved&#10;&#10;Last modified by &quot;&amp;#36;username&quot; on &amp;#36;file.lastModified&#10;&#10;@project &amp;#36;project.name&#10;@see https://github.com/idmarinas/advertising-bundle&#10;&#10;@file &amp;#36;file.className&#10;#set(&amp;#36;dateCreated = &amp;#36;originalComment.match(&quot;@date +(\d{2}/\d{2}/\d{4})&quot;,1,&quot;&quot;))&#10;@date &amp;#36;{dateCreated|&amp;#36;today.format('dd/MM/yyyy')}&#10;#set(&amp;#36;timeCreated = &amp;#36;originalComment.match(&quot;@time +(\d{2}:\d{2})&quot;,1,&quot;&quot;))&#10;@time &amp;#36;{timeCreated|&amp;#36;today.format('kk:mm')}&#10;&#10;@author Iván Diaz Marinas (IDMarinas)&#10;@license BSD 3-Clause License&#10;&#10;@since &amp;#36;{version|&quot;2.0.0&quot;}" />
+    <option name="myName" value="Default" />
+  </copyright>
+</component>
