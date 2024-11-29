@@ -1,11 +1,9 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=alert_status)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
 [![PHP Composer](https://github.com/idmarinas/advertising-bundle/actions/workflows/php.yml/badge.svg)](https://github.com/idmarinas/advertising-bundle/actions/workflows/php.yml)
-[![SonarCloud](https://github.com/idmarinas/advertising-bundle/actions/workflows/sonar-cloud.yml/badge.svg)](https://github.com/idmarinas/advertising-bundle/actions/workflows/sonar-cloud.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=alert_status)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
 
 ![GitHub release](https://img.shields.io/github/release/idmarinas/advertising-bundle.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/advertising-bundle.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/advertising-bundle)
-[![Build in PHP](https://img.shields.io/badge/PHP-^7.4-8892BF.svg?logo=php)](http://php.net/)
 [![Build in PHP](https://img.shields.io/badge/PHP-^8.0-8892BF.svg?logo=php)](http://php.net/)
 
 ![GitHub issues](https://img.shields.io/github/issues/idmarinas/advertising-bundle.svg)
@@ -39,7 +37,7 @@ Show network ads in your Symfony App. Come with the Adsense Network and Generic 
 ### Composer ###
 
 ```bash
-composer require idmarinas/advertising-bundle
+  composer require idmarinas/advertising-bundle
 ```
 
 ## Usage ##
@@ -90,7 +88,7 @@ Usage in your templates:
 <!-- Code of your template -->
 ```
 
-First argument is the network name, and second is name of banner.
+The First argument is the network name, and the second argument is the name of banner.
 
 For last need print scripts for your banners:
 
