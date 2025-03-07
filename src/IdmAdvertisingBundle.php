@@ -1,20 +1,32 @@
 <?php
-
 /**
- * This file is part of Bundle "IDM Advertising Bundle".
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * @see https://github.com/idmarinas/advertising-bundle
+ * Last modified by "IDMarinas" on 07/03/2025, 16:42
  *
- * @license https://github.com/idmarinas/advertising-bundle/blob/master/LICENSE.txt
- * @author IDMarinas
+ * @project IDMarinas Advertising Bundle
+ * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @since 0.1.0
+ * @file    IdmAdvertisingBundle.php
+ * @date    13/02/2021
+ * @time    17:09
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   0.1.0
  */
 
 namespace Idm\Bundle\Advertising;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-final class IdmAdvertisingBundle extends Bundle
+final class IdmAdvertisingBundle extends AbstractBundle
 {
+	public function loadExtension (array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+	{
+		$container->import(dirname(__DIR__) . '/config/services.php');
+	}
 }
