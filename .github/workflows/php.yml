@@ -2,41 +2,41 @@ name: IDMarinas Advertising Bundle Test Suite
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ 2.x ]
+    types: [ opened, synchronize, reopened ]
+    tags-ignore: [ dependencies, documentation, meta, 'docker configuration', 'deployer configuration' ]
   push:
-    branches:
-      - main
+    branches: [ 2.x ]
+    paths-ignore:
+      - '.deployer/**'
+      - '.docker/**'
+      - '.idea/**'
+      - 'migrations/**'
+      - '**/docs/**'
+      - '**/Writerside/**'
+      - '**/README.md'
+      - '**/COMMANDS.md'
+      - '**/TIPS.md'
+      - '**/TODO.md'
+      - '**/LICENSE'
+      - rector.php
+      - .editorconfig
+      - .gitignore
+      - compose.yaml
 
 jobs:
   build:
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     name: PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
     strategy:
       matrix:
-        operating-system: [ ubuntu-latest ]
-        php: [ '8.0', '8.1', '8.2', '8.3', '8.4' ]
-        symfony: [ '5.4.*', '6.4.*', '7.0.*', '7.1.*' ]
-
-        exclude:
-          - php: '8.0'
-            symfony: '6.4.*'
-          - php: '8.0'
-            symfony: '7.0.*'
-          - php: '8.0'
-            symfony: '7.1.*'
-          - php: '8.0'
-            symfony: '7.2.*'
-          - php: '8.1'
-            symfony: '7.0.*'
-          - php: '8.1'
-            symfony: '7.1.*'
-          - php: '8.1'
-            symfony: '7.2.*'
+        php: [ '8.2', '8.3', '8.4' ]
+        symfony: [ '6.4.*', '7.0.*', '7.1.*', '7.2.*' ]
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: ${{ (matrix.php == '8.0' && matrix.symfony == '5.4.*') && '0' || '1' }}
+          fetch-depth: ${{ (matrix.php == '8.2' && matrix.symfony == '6.4.*') && '0' || '1' }}
 
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -49,17 +49,17 @@ jobs:
           SYMFONY_REQUIRE: ${{ matrix.symfony }}
         uses: ramsey/composer-install@v3
 
+      # # Uncomment if need create a SQLite Database
+      # - name: Create Database SQLite
+      #   run: 'php bin/console doctrine:schema:create --env=test && php bin/console doctrine:fixtures:load --env=test -n'
+
       - name: Run test suite on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --exclude ignore
 
-      - name: Fix paths for Sonar
-        if: matrix.php == '8.0' && matrix.symfony == '5.4.*'
-        working-directory: ./build/reports/
-        run: sed -i 's/\/home\/runner\/work\/advertising-bundle\/advertising-bundle\//\/github\/workspace\//g' phpunit.coverage.xml
-
+      # Uncomment to activate SonarCloud Scan
       - name: SonarCloud Scan
-        if: matrix.php == '8.0' && matrix.symfony == '5.4.*'
-        uses: SonarSource/sonarcloud-github-action@master
+        if: matrix.php == '8.2' && matrix.symfony == '6.4.*'
+        uses: SonarSource/sonarqube-scan-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
