@@ -1,103 +1,110 @@
-[![PHP Composer](https://github.com/idmarinas/advertising-bundle/actions/workflows/php.yml/badge.svg)](https://github.com/idmarinas/advertising-bundle/actions/workflows/php.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=alert_status)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
+<!--suppress HtmlDeprecatedAttribute -->
+<div align="center">
 
-![GitHub release](https://img.shields.io/github/release/idmarinas/advertising-bundle.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/advertising-bundle.svg)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/advertising-bundle)
-[![Build in PHP](https://img.shields.io/badge/PHP-^8.0-8892BF.svg?logo=php)](http://php.net/)
+# IDMarinas Advertising Bundle
 
-![GitHub issues](https://img.shields.io/github/issues/idmarinas/advertising-bundle.svg)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/advertising-bundle.svg)
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/advertising-bundle/latest.svg)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/advertising-bundle.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/advertising-bundle.svg)
+![GitHub release](https://img.shields.io/github/release/idmarinas/advertising-bundle.svg?style=for-the-badge)
+![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/advertising-bundle.svg?style=for-the-badge)
 
-![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/advertising-bundle.svg)
-![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/advertising-bundle.svg)
+</div>
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=bugs)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=security_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=sqale_index)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=code_smells)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=coverage)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle)
+> Show network ads in your Symfony App. Come with the Adsense Network and Generic network for add your own network.
 
-[![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_project-ffaa29.svg?logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
-[![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
-[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&cacheSeconds=86400)](https://twitter.com/idmarinas)
+<br />
 
-# AdvertisingBundle
-Show network ads in your Symfony App. Come with the Adsense Network and Generic network for add your own network.
+<div align="center">
 
-## Installation ##
+[![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/advertising-bundle/php.yml?branch=2.x&style=for-the-badge&logo=github&logoColor=white&label=Lotgd%20Test%20Suite)][test-suit]
+[![Quality Gate Status](https://img.shields.io/sonar/quality_gate/idmarinas_advertising-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/summary/new_code?id=idmarinas_advertising-bundle)
+[![Coverage](https://img.shields.io/sonar/coverage/idmarinas_advertising-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)][sonarcloud]
+[![Technical Debt](https://img.shields.io/sonar/tech_debt/idmarinas_advertising-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)][sonarcloud]
 
-### Composer ###
+<br />
 
-```bash
-  composer require idmarinas/advertising-bundle
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/advertising-bundle/latest/2.x?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/advertising-bundle/2.x?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/advertising-bundle/2.x?style=for-the-badge)
+
+#### Code analysis
+
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=reliability_rating)][sonarcloud]
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=bugs)][sonarcloud]
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=security_rating)][sonarcloud]
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=vulnerabilities)][sonarcloud]
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=sqale_rating)][sonarcloud]
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=code_smells)][sonarcloud]
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_advertising-bundle&branch=2.x&metric=duplicated_lines_density)][sonarcloud]
+
+</div>
+
+> ## 🖖 Support
+>
+> 🩵 If you like this project, give it a 🌟 and share it with your friends!
+>
+> [![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_projects-ffaa29.svg?style=for-the-badge&logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
+> [![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?style=for-the-badge&logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
+> [![GitHub Sponsor](https://img.shields.io/badge/Sponsor-ea4aaa?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sponsors/idmarinas)
+
+
+<br />
+
+# 💾 Installation
+
+Make sure Composer is installed globally, as explained in the
+[installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
+
+## 💪 Applications that use Symfony Flex
+
+Open a command console, enter your project directory and execute:
+
+```console
+$ composer require idmarinas/advertising-bundle
 ```
 
-## Usage ##
+## 🚫 Applications that don't use Symfony Flex
 
-Configuration reference:
+### Step 1️⃣: Download the Bundle
 
-```yaml
-# config/packages/idm_advertising.yaml
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
 
-idm_advertising:
-    enable: true # Enable/disable advertising bundle. default false
-    networks: # Required
-        adsense: # Default configuration for AdSense Advertising
-            type: adsense
-            # service_network: idm_advertising.adsense # Custom service provider, ID of service
-            enable: true # Enable/disable advertising provider
-            client: null # "data-ad-client" ca-pub-XXXXXXX11XXX9
-            banners: # Banners of ads (As many as you need with the same format). Required
-                banner_header:
-                    style: 'display:block' # style="" tag in <ins>
-                    slot: 0 #  "data-ad-slot" Slot ID of Ad block 8XXXXX1
-                    format: 'auto' # "data-ad-format" Values: "rectangle", "vertical" or "horizontal"
-                    responsive: true # "data-full-width-responsive"
-                other_banner:
-                    style: 'display:block'
-                    slot: 0
-                    format: 'auto'
-                    responsive: true
-        generic: 
-            type: generic # Required
-            service_network: 'your.service.id' # Required
-            banners: # Required
-                custom_zone: 
-                    config: 'for your custom network banner'
+```console
+$ composer require idmarinas/advertising-bundle
 ```
 
-Usage in your templates:
+### Step 2️⃣: Enable the Bundle
 
-```twig
-<!-- Code of your template -->
-<!-- .... -->
+Then, enable the bundle by adding it to the list of registered bundles
+in the `config/bundles.php` file of your project:
 
-{{ advertising_banner('adsense', 'banner_header') }}
+```php
+// config/bundles.php
 
-{{ advertising_banner('generic', 'custom_zone') }}
-
-<!-- .... -->
-<!-- Code of your template -->
+return [
+    // ...
+    Idm\Bundle\Advertising\IdmAdvertisingBundle::class => ['all' => true],
+];
 ```
 
-The First argument is the network name, and the second argument is the name of banner.
+## 🖱️ Tech used in code
 
-For last need print scripts for your banners:
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/advertising-bundle.svg?style=for-the-badge)
+[![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
+[![Symfony](https://img.shields.io/badge/symfony-black.svg?style=for-the-badge&logo=symfony&logoColor=white)](https://www.symfony.com)
 
-```twig
-<!-- Before </body> tag -->
+## 🛠️ Tools used for create this project
 
-<!-- This print all scripts -->
-{{ advertising_scripts() }}
+![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white)
+[![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
+[![Composer](https://img.shields.io/badge/composer-%238c5530?style=for-the-badge&logo=composer&logoColor=white)](https://getcomposer.org)
 
-<!-- This print scripts for adsense network -->
-{{ advertising_scripts('adsense') }}
-```
+## 💬 Social
+
+[![X](https://img.shields.io/badge/Twitter-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)](https://x.com/idmarinas)
+[![Discord](https://img.shields.io/badge/Discord-IDMarinas-blue?logo=discord&style=for-the-badge&logoColor=white)](https://discord.gg/FXEZqpF)
+
+[sonarcloud]: https://sonarcloud.io/dashboard?id=idmarinas_advertising-bundle
+
+[test-suit]: https://github.com/idmarinas/advertising-bundle/actions/workflows/php.yml
