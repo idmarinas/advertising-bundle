@@ -1,0 +1,17 @@
+name: advertising_bundle
+
+services:
+  php:
+    image: idmarinas/php:8.2-xdebug
+    environment:
+      SYMFONY_REQUIRE: '6.4.*'
+    healthcheck:
+      test: php -v || exit 1
+    volumes:
+      - ./:/var/www/html
+      ## SSH
+      - ssh_key:/root/.ssh:ro
+
+volumes:
+  ssh_key:
+    external: true
