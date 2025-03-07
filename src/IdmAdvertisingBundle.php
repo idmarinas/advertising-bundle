@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 07/03/2025, 16:51
+ * Last modified by "IDMarinas" on 07/03/2025, 19:06
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -22,11 +22,19 @@ namespace Idm\Bundle\Advertising;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\UX\TwigComponent\TwigComponentBundle;
 
 final class IdmAdvertisingBundle extends AbstractBundle
 {
 	public function loadExtension (array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
 		$container->import(dirname(__DIR__) . '/config/services.php');
+	}
+
+	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
+	{
+		if ($builder::willBeAvailable('symfony/ux-twig-component', TwigComponentBundle::class, ['symfony/twig-bundle'])) {
+			$container->import(dirname(__DIR__) . '/config/twig_component.php');
+		}
 	}
 }
