@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 10:50
+ * Last modified by "IDMarinas" on 08/03/2025, 11:17
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -27,16 +27,9 @@ return static function (DefinitionConfigurator $definition): void {
 	// @formatter:off
 	$definition
 		->rootNode()
-			->canBeEnabled()
-				->info('Enable/disable IDMarinas Advertising Bundle.')
-			->fixXmlConfig('network')
-			->children()
-				->arrayNode('networks')
-					->append($adsense())
-					->append($cpmstar())
-					->append($generic())
-				->end()
-			->end()
+			->append($adsense())
+			->append($cpmstar())
+			->append($generic())
 		->end()
 	;
 	// @formatter:on
