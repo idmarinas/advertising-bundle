@@ -40,6 +40,7 @@ return static function (): NodeDefinition {
 				->cannotBeEmpty()
 			->end()
 			->arrayNode('banners')
+				->requiresAtLeastOneElement()
 				->useAttributeAsKey('name')
 				->arrayPrototype()
 					->children()

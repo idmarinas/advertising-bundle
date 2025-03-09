@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 10:46
+ * Last modified by "IDMarinas" on 09/03/2025, 18:28
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -36,6 +36,7 @@ return static function (): NodeDefinition {
 			->end()
 			->arrayNode('banners')
 				->useAttributeAsKey('name')
+				->requiresAtLeastOneElement()
 				->arrayPrototype()
 					->children()
 						->integerNode('cpmstar_pid')
