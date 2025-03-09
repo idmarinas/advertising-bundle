@@ -47,8 +47,4 @@
 	<logging>
 		<junit outputFile="./build/reports/phpunit.xml" />
 	</logging>
-
-	<extensions>
-		<extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
-	</extensions>
 </phpunit>
