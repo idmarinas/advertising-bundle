@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 10:41
+ * Last modified by "IDMarinas" on 09/03/2025, 18:29
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -17,6 +17,8 @@
  * @since   2.0.0
  */
 
+use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdFormatEnum;
+use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
@@ -45,8 +47,9 @@ return static function (): NodeDefinition {
 				->arrayPrototype()
 					->children()
 						->enumNode('type')
+							->defaultValue(AdsenseAdTypeEnum::Display)
 							->info('Select type of banner')
-							->values(['in-article', 'display', 'search', 'in-feed', 'multiplex'])
+							->values(AdsenseAdTypeEnum::cases())
 						->end()
 						->integerNode('slot')
 							->info('Slot ID of Ad block 8XXXXX1')
@@ -55,8 +58,8 @@ return static function (): NodeDefinition {
 						->end()
 						->enumNode('format')
 							->info('Format of Ad')
-							->defaultValue('auto')
-							->values(['auto', 'rectangle', 'vertical', 'horizontal', 'fluid'])
+							->defaultValue(AdsenseAdFormatEnum::Auto)
+							->values(AdsenseAdFormatEnum::cases())
 						->end()
 						->booleanNode('responsive')
 							->info('Indicate if Ad is responsive, for mobile')
