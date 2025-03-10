@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/03/2025, 18:29
+ * Last modified by "IDMarinas" on 10/03/2025, 22:23
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -44,12 +44,13 @@ return static function (): NodeDefinition {
 			->arrayNode('banners')
 				->requiresAtLeastOneElement()
 				->useAttributeAsKey('name')
+				->fixXmlConfig('attribute')
 				->arrayPrototype()
 					->children()
 						->enumNode('type')
-							->defaultValue(AdsenseAdTypeEnum::Display)
+							->defaultValue(AdsenseAdTypeEnum::Display->value)
 							->info('Select type of banner')
-							->values(AdsenseAdTypeEnum::cases())
+							->values(AdsenseAdTypeEnum::values())
 						->end()
 						->integerNode('slot')
 							->info('Slot ID of Ad block 8XXXXX1')
@@ -58,12 +59,15 @@ return static function (): NodeDefinition {
 						->end()
 						->enumNode('format')
 							->info('Format of Ad')
-							->defaultValue(AdsenseAdFormatEnum::Auto)
-							->values(AdsenseAdFormatEnum::cases())
+							->defaultValue(AdsenseAdFormatEnum::Auto->value)
+							->values(AdsenseAdFormatEnum::values())
 						->end()
 						->booleanNode('responsive')
 							->info('Indicate if Ad is responsive, for mobile')
 							->defaultTrue()
+						->end()
+						->variableNode('attributes')
+							->info('Attributes passed to HTML tag (Like "class", "style" ...)')
 						->end()
 					->end()
 				->end()
