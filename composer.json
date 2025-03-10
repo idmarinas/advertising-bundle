@@ -22,7 +22,6 @@
 	"require": {
 		"php": "^8.2",
 		"phpdocumentor/reflection-docblock": "^5.6",
-		"phpstan/phpdoc-parser": "^2.1",
 		"symfony/dependency-injection": "^6.4 | ^7.0",
 		"symfony/event-dispatcher": "^6.4 | ^7.0",
 		"symfony/framework-bundle": "^6.4 | ^7.0",
@@ -32,6 +31,7 @@
 	},
 	"require-dev": {
 		"idmarinas/composer-plugin": "^1.0",
+		"phpstan/phpdoc-parser": "^2.1",
 		"phpunit/phpunit": "^9.6",
 		"rector/rector": "^1.2",
 		"symfony/browser-kit": "^6.4 | ^7.0",
