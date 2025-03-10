@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/03/2025, 22:00
+ * Last modified by "IDMarinas" on 10/03/2025, 22:22
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -39,7 +39,7 @@ return static function (): NodeDefinition {
 				->requiresAtLeastOneElement()
 				->arrayPrototype()
 					->children()
-						->integerNode('cpmstar_pid')
+						->integerNode('slot')
 							->info('Pool ID of Ad block 8XXXXX1')
 							->min(0)
 							->isRequired()
