@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/03/2025, 18:28
+ * Last modified by "IDMarinas" on 10/03/2025, 22:21
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -39,7 +39,14 @@ return static function (): NodeDefinition {
 				->useAttributeAsKey('name')
 				->requiresAtLeastOneElement()
 				->arrayPrototype()
-					->scalarPrototype()->end()
+					->children()
+						->scalarNode('slot')
+							->info('Slot ID of Ad block')
+						->end()
+						->variableNode('attributes')
+							->info('Attributes passed to HTML tag (Like "class", "style" ...)')
+						->end()
+					->end()
 				->end()
 			->end()
 		->end()
