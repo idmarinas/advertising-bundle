@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 16:20
+ * Last modified by "IDMarinas" on 11/03/2025, 16:32
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -21,7 +21,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Idm\Bundle\Advertising\Twig\Extension\AdvertisingExtension;
 use Idm\Bundle\Advertising\Twig\Runtime\BannerRuntime;
-use Idm\Bundle\Advertising\Twig\Runtime\ScriptRuntime;
+use Idm\Bundle\Advertising\Twig\Runtime\ScriptsRuntime;
 
 return static function (ContainerConfigurator $container) {
 	// @formatter:off
@@ -29,17 +29,18 @@ return static function (ContainerConfigurator $container) {
 		->services()
 			->set(AdvertisingExtension::class)
 				->tag('twig.extension')
+
 			->set(BannerRuntime::class)
 				->arg('$eventDispatcher', service('event_dispatcher'))
 				->arg('$providerHub', service('.idm_advertising.provider_hub'))
 				->tag('twig.runtime')
 				->tag('ux.twig_component.twig_renderer', ['key' => 'IdmAdvertising:Show:Banner'])
 
-			->set(ScriptRuntime::class)
+			->set(ScriptsRuntime::class)
 				->arg('$eventDispatcher', service('event_dispatcher'))
 				->arg('$providerHub', service('.idm_advertising.provider_hub'))
 				->tag('twig.runtime')
-				->tag('ux.twig_component.twig_renderer', ['key' => 'IdmAdvertising:Show:Script'])
+				->tag('ux.twig_component.twig_renderer', ['key' => 'IdmAdvertising:Show:Scripts'])
 
 	;
 	// @formatter:on
