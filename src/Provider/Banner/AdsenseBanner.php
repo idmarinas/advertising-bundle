@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 12:41
+ * Last modified by "IDMarinas" on 11/03/2025, 20:56
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -24,9 +24,22 @@ use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
 
 final class AdsenseBanner extends AbstractBanner
 {
+	private string              $client;
 	private AdsenseAdTypeEnum   $type;
 	private AdsenseAdFormatEnum $format;
 	private bool                $responsive;
+
+	public function getClient (): string
+	{
+		return $this->client;
+	}
+
+	public function setClient (string $client): self
+	{
+		$this->client = $client;
+
+		return $this;
+	}
 
 	public function getType (): AdsenseAdTypeEnum
 	{
@@ -68,7 +81,7 @@ final class AdsenseBanner extends AbstractBanner
 	{
 		$style = $this->getAttrStyle() . ($this->getType() == AdsenseAdTypeEnum::InArticle ? 'text-align:center;' : '');
 
-		$attributes = ' data-ad-client="%%client%%"';
+		$attributes = ' data-ad-client="' . $this->getClient() . '"';
 		$attributes .= ' data-ad-slot="' . $this->getSlot() . '"';
 		$attributes .= $this->extraAttributesForBanner();
 		$attributes .= ' class="' . $this->getAttrClass() . '"';
