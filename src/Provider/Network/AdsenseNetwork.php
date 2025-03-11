@@ -1,80 +1,90 @@
 <?php
 
 /**
- * This file is part of Bundle "IDM Advertising Bundle".
+ * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * @see https://github.com/idmarinas/advertising-bundle
+ * Last modified by "IDMarinas" on 11/03/2025, 14:40
  *
- * @license https://github.com/idmarinas/advertising-bundle/blob/master/LICENSE.txt
- * @author IDMarinas
+ * @project IDMarinas Advertising Bundle
+ * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @since 0.1.0
+ * @file    AdsenseNetwork.php
+ * @date    13/02/2021
+ * @time    17:09
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   0.1.0
  */
 
 namespace Idm\Bundle\Advertising\Provider\Network;
 
-use Idm\Bundle\Advertising\Provider\NetworkAbstract;
+use ArrayObject;
+use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
+use Idm\Bundle\Advertising\Event\NetworkEvent;
+use Idm\Bundle\Advertising\Provider\Banner\AbstractBanner;
+use Idm\Bundle\Advertising\Provider\Banner\AdsenseBanner;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
-final class AdsenseNetwork extends NetworkAbstract
+final class AdsenseNetwork extends AbstractNetwork
 {
-    /** Indicate if script is rendered. */
-    protected bool $scriptRendered = false;
+	private string $client;
 
-    public function getBanner(string $slot): string
-    {
-        $config     = $this->getConfig();
-        $slotConfig = $config['banners'][$slot] ?? [];
+	public function getScriptUrl (string $type): string
+	{
+		return match ($type) {
+			'search' => 'https://cse.google.com/cse.js?cx=' . str_replace('ca-pub-', 'partner-pub-', $this->getClient()),
+			default  => 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' . $this->getClient(),
+		};
+	}
 
-        if (empty($slotConfig) || ! $slotConfig['slot'])
-        {
-            return '';
-        }
+	public function getBanner (string $bannerName): ?AbstractBanner
+	{
+		if (!$this->isNetworkEnabled()) {
+			return null;
+		}
 
-        $this->setSlotConfig($slotConfig);
+		/** @var AdsenseBanner $banner */
+		$banner = parent::getBanner($bannerName);
 
-        // -- If not enable return empty string.
-        if ( ! $this->isNetworkEnabled())
-        {
-            return '';
-        }
+		if (null !== $banner) {
+			$type = $banner->getType();
+			$url = $this->getScriptUrl($type->value) . ($type === AdsenseAdTypeEnum::Search ? ':' . $banner->getSlot() : '');
+			$banner->setUrl($url);
+		}
 
-        return sprintf(
-            '<ins class="adsbygoogle %7$s"
-                style="%1$s"
-                %6$s
-                data-ad-client="%2$s"
-                data-ad-slot="%3$s"
-                data-ad-format="%4$s"
-                data-full-width-responsive="%5$s"></ins>
-            <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>',
-            $slotConfig['style'] ?? '',
-            $config['client'],
-            $slotConfig['slot'],
-            ('auto' == $slotConfig['format'] && $slotConfig['in_article']) ? 'fluid' : $slotConfig['format'],
-            $slotConfig['responsive'] ? 'true' : 'false',
-            $slotConfig['in_article'] ? 'data-ad-layout="in-article"' : '',
-            $slotConfig['class'],
-        );
-    }
+		$event = new NetworkEvent();
+		$event->setBanner($banner);
+		$this->eventDispatcher->dispatch($event, NetworkEvent::NETWORK_GET_BANNER_POST);
 
-    /**
-     * Is enable only if 'enable' = true and client is configured.
-     */
-    public function isNetworkEnabled(): bool
-    {
-        return parent::isNetworkEnabled()
-            && \is_string($this->configuration['client'])
-            && ! empty($this->configuration['client'])
-        ;
-    }
+		return $event->getBanner();
+	}
 
-    /**
-     * {@inheritDoc}
-     */
-    public function getScriptUrl(): string
-    {
-        $config = $this->getConfig();
+	/**
+	 * @inheritdoc
+	 * @throws ExceptionInterface
+	 */
+	public function configureBanners (array $banners): self
+	{
+		$this->banners = new ArrayObject();
 
-        return 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='.$config['client'];
-    }
+		foreach ($banners as $banner => $config) {
+			$config['name'] = $banner;
+			$obj = $this->denormalizer->denormalize($config, AdsenseBanner::class, 'array');
+			$this->banners->offsetSet($banner, $obj);
+		}
+
+		return $this;
+	}
+
+	public function getClient (): string
+	{
+		return $this->client;
+	}
+
+	public function setClient (string $client): void
+	{
+		$this->client = $client;
+	}
 }
