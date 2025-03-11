@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 18:37
+ * Last modified by "IDMarinas" on 11/03/2025, 20:57
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -52,7 +52,7 @@ final readonly class BannerRuntime implements RuntimeExtensionInterface
 
 		$this->providerHub->setScriptUrls($networkName, $banner->getUrl());
 
-		return str_replace('%%client%%', $network->getClient(), $banner->getTemplate());
+		return $banner->getTemplate();
 	}
 
 	public function render (array $args = []): string
