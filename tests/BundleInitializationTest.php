@@ -1,59 +1,49 @@
 <?php
 
 /**
- * This file is part of Bundle "IDM Advertising Bundle".
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * @see https://github.com/idmarinas/advertising-bundle
+ * Last modified by "IDMarinas" on 11/03/2025, 21:54
  *
- * @license https://github.com/idmarinas/advertising-bundle/blob/master/LICENSE.txt
- * @author IDMarinas
+ * @project IDMarinas Advertising Bundle
+ * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @since 0.1.0
+ * @file    BundleInitializationTest.php
+ * @date    07/03/2025
+ * @time    15:31
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   0.1.0
  */
 
 namespace Idm\Bundle\Advertising\Tests;
 
-use Idm\Bundle\Advertising\IdmAdvertisingBundle;
-use Idm\Bundle\Advertising\Provider\NetworkRegistry;
-use Nyholm\BundleTest\TestKernel;
+use Idm\Bundle\Advertising\Provider\Network\NetworkInterface;
+use Idm\Bundle\Advertising\Provider\ProviderHub;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\HttpKernel\KernelInterface;
 
-class BundleInitializationTest extends KernelTestCase
+final class BundleInitializationTest extends KernelTestCase
 {
-    public function testInitBundle(): void
-    {
-        // Boot the kernel.
-        $kernel = self::bootKernel();
+	public function testInitBundle (): void
+	{
+		// Boot the kernel.
+		static::bootKernel();
 
-        // Get the container
-        $container = $kernel->getContainer();
+		// Get the container
+		$container = static::getContainer();
 
-        $this->assertTrue(true);
-        // Or for FrameworkBundle@^5.3.6 to access private services without the PublicCompilerPass
-        // $container = self::getContainer();
+		$this->assertTrue(in_array('.idm_advertising.provider_hub', $container->getRemovedIds()));
+		$service = $container->get(ProviderHub::class);
+		$this->assertInstanceOf(ProviderHub::class, $service);
 
-        // Test if your services exists
-        $this->assertTrue($container->has('idm_advertising.networks.registry'));
-        $service = $container->get('idm_advertising.networks.registry');
-        $this->assertInstanceOf(NetworkRegistry::class, $service);
-    }
+		$this->assertTrue($container->has('idm_advertising.network.adsense'));
+		$service = $container->get('idm_advertising.network.adsense');
+		$this->assertInstanceOf(NetworkInterface::class, $service);
 
-    protected static function getKernelClass(): string
-    {
-        return TestKernel::class;
-    }
-
-    protected static function createKernel(array $options = []): KernelInterface
-    {
-        /**
-         * @var TestKernel $kernel
-         */
-        $kernel = parent::createKernel($options);
-        $kernel->addTestBundle(IdmAdvertisingBundle::class);
-        $kernel->handleOptions($options);
-        $kernel->addTestConfig(__DIR__.'/config/idm_advertising.yaml');
-
-        return $kernel;
-    }
+		$this->assertTrue($container->has('idm_advertising.network.cpmstar'));
+		$service = $container->get('idm_advertising.network.cpmstar');
+		$this->assertInstanceOf(NetworkInterface::class, $service);
+	}
 }
