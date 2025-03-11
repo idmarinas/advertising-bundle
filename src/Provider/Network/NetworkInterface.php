@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/03/2025, 23:55
+ * Last modified by "IDMarinas" on 11/03/2025, 14:35
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -23,7 +23,7 @@ use Idm\Bundle\Advertising\Provider\Banner\AbstractBanner;
 
 interface NetworkInterface
 {
-	public function getBanner (string $bannerNameName): ?AbstractBanner;
+	public function getBanner (string $bannerName): ?AbstractBanner;
 
 	public function getScriptUrl (string $type): string;
 
