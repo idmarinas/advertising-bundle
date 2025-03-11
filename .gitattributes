@@ -31,3 +31,7 @@ docs/ merge=ours
 /phpunit.xml.dist export-ignore
 /rector.php export-ignore
 /sonar-project.properties export-ignore
+
+##> idmarinas/advertising-bundle
+/templates
+##< idmarinas/advertising-bundle
