@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/03/2025, 23:55
+ * Last modified by "IDMarinas" on 11/03/2025, 14:35
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -38,9 +38,13 @@ abstract class AbstractNetwork implements NetworkInterface
 		protected readonly EventDispatcherInterface $eventDispatcher,
 	) {}
 
-	public function getBanner (string $bannerNameName): ?AbstractBanner
+	public function getBanner (string $bannerName): ?AbstractBanner
 	{
-		return $this->banners->offsetGet($bannerNameName);
+		if ($this->banners->offsetExists($bannerName)) {
+			return $this->banners->offsetGet($bannerName);
+		}
+
+		return null;
 	}
 
 	public function isNetworkEnabled (): bool
