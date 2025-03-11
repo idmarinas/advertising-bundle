@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 15:56
+ * Last modified by "IDMarinas" on 11/03/2025, 16:32
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,7 +20,7 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Idm\Bundle\Advertising\Twig\Component\Banner;
-use Idm\Bundle\Advertising\Twig\Component\Script;
+use Idm\Bundle\Advertising\Twig\Component\Scripts;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 return static function (ContainerConfigurator $container, ContainerBuilder $builder) {
@@ -29,7 +29,7 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 		->services()
 			->set(Banner::class)
 				->tag('twig.component', ['key' => 'IdmAdvertising:Show:Banner'])
-			->set(Script::class)
-				->tag('twig.component', ['key' => 'IdmAdvertising:Show:Script'])
+			->set(Scripts::class)
+				->tag('twig.component', ['key' => 'IdmAdvertising:Show:Scripts'])
 	;
 };
