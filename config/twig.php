@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 16:32
+ * Last modified by "IDMarinas" on 11/03/2025, 16:41
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -27,16 +27,16 @@ return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
-			->set(AdvertisingExtension::class)
+			->set('.idm_advertising.twig.extension', AdvertisingExtension::class)
 				->tag('twig.extension')
 
-			->set(BannerRuntime::class)
+			->set('.idm_advertising.twig.banner_runtime', BannerRuntime::class)
 				->arg('$eventDispatcher', service('event_dispatcher'))
 				->arg('$providerHub', service('.idm_advertising.provider_hub'))
 				->tag('twig.runtime')
 				->tag('ux.twig_component.twig_renderer', ['key' => 'IdmAdvertising:Show:Banner'])
 
-			->set(ScriptsRuntime::class)
+			->set('.idm_advertising.twig.scripts_runtime', ScriptsRuntime::class)
 				->arg('$eventDispatcher', service('event_dispatcher'))
 				->arg('$providerHub', service('.idm_advertising.provider_hub'))
 				->tag('twig.runtime')
