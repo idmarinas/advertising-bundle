@@ -3,7 +3,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 14:40
+ * Last modified by "IDMarinas" on 11/03/2025, 20:57
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -72,6 +72,7 @@ final class AdsenseNetwork extends AbstractNetwork
 		foreach ($banners as $banner => $config) {
 			$config['name'] = $banner;
 			$obj = $this->denormalizer->denormalize($config, AdsenseBanner::class, 'array');
+			$obj->setClient($this->getClient());
 			$this->banners->offsetSet($banner, $obj);
 		}
 
