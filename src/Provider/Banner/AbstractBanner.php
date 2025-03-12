@@ -93,6 +93,7 @@ abstract class AbstractBanner
 		$this->attrClass = 'adsbygoogle ';
 		if ($this->attributes->offsetExists('class')) {
 			$this->attrClass .= $this->attributes->offsetGet('class');
+			$this->attrClass = implode(' ', array_unique(explode(' ', $this->attrClass)));
 			$this->attributes->offsetUnset('class');
 		}
 
