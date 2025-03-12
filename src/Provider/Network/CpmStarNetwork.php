@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 21:14
+ * Last modified by "IDMarinas" on 12/03/2025, 15:37
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -23,6 +23,7 @@ namespace Idm\Bundle\Advertising\Provider\Network;
 use ArrayObject;
 use Idm\Bundle\Advertising\Event\NetworkEvent;
 use Idm\Bundle\Advertising\Provider\Banner\AbstractBanner;
+use Idm\Bundle\Advertising\Provider\Banner\CpmStarBanner;
 use Symfony\Component\Serializer\Exception\ExceptionInterface;
 
 final class CpmStarNetwork extends AbstractNetwork
@@ -51,7 +52,7 @@ final class CpmStarNetwork extends AbstractNetwork
 
 		foreach ($banners as $banner => $config) {
 			$config['name'] = $banner;
-			$obj = $this->denormalizer->denormalize($config, CpmStarNetwork::class, 'array');
+			$obj = $this->denormalizer->denormalize($config, CpmStarBanner::class, 'array');
 			$this->banners->offsetSet($banner, $obj);
 		}
 
