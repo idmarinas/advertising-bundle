@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/03/2025, 22:46
+ * Last modified by "IDMarinas" on 12/03/2025, 14:01
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -35,19 +35,10 @@ trait EnumToArrayTrait
 	}
 
 	/**
-	 * Return an associative array or values or names
-	 *
+	 * Return an associative array
 	 */
 	public static function asArray (): array
 	{
-		if (empty(self::values())) {
-			return self::names();
-		}
-
-		if (empty(self::names())) {
-			return self::values();
-		}
-
 		return array_column(self::cases(), 'value', 'name');
 	}
 }
