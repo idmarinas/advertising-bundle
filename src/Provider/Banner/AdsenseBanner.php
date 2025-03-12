@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 20:56
+ * Last modified by "IDMarinas" on 12/03/2025, 18:42
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -79,7 +79,7 @@ final class AdsenseBanner extends AbstractBanner
 
 	public function getTemplate (): string
 	{
-		$style = $this->getAttrStyle() . ($this->getType() == AdsenseAdTypeEnum::InArticle ? 'text-align:center;' : '');
+		$style = $this->getAttrStyle() . ($this->getType() == AdsenseAdTypeEnum::InArticle ? ' text-align:center;' : '');
 
 		$attributes = ' data-ad-client="' . $this->getClient() . '"';
 		$attributes .= ' data-ad-slot="' . $this->getSlot() . '"';
@@ -87,10 +87,7 @@ final class AdsenseBanner extends AbstractBanner
 		$attributes .= ' class="' . $this->getAttrClass() . '"';
 		$attributes .= ' style="' . $style . '"';
 		$attributes .= $this->getNonce('style');
-
-		foreach ($this->getAttributes() as $attr => $value) {
-			$attributes .= ' ' . $attr . '="' . $value . '"';
-		}
+		$attributes .= $this->processAttributes($this->getAttributes()->getArrayCopy());
 
 		$tpl = sprintf('<ins%s></ins>', $attributes);
 
@@ -104,7 +101,7 @@ final class AdsenseBanner extends AbstractBanner
 			AdsenseAdTypeEnum::Display,
 			AdsenseAdTypeEnum::InArticle,
 			AdsenseAdTypeEnum::InFeed,
-			AdsenseAdTypeEnum::Multiplex => $tpl . $script,
+			AdsenseAdTypeEnum::Multiplex => $tpl . "\n" . $script,
 		};
 	}
 
