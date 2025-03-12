@@ -1,5 +1,9 @@
 name: IDMarinas Advertising Bundle Test Suite
 
+permissions:
+  contents: read
+  pull-requests: write
+
 on:
   pull_request:
     branches: [ 2.x ]
