@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 21:19
+ * Last modified by "IDMarinas" on 12/03/2025, 15:41
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -23,9 +23,9 @@ use Random\RandomException;
 
 class CpmStarBanner extends AbstractBanner
 {
-	public function setUrl (string $url): AbstractBanner
+	public function getUrl (): string
 	{
-		return parent::setUrl('');
+		return '';
 	}
 
 	/**
