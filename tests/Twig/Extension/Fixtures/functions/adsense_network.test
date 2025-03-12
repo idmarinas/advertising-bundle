@@ -1,0 +1,16 @@
+--TEST--
+"idm_advertising_banner" function
+"idm_advertising_scripts" function
+
+--TEMPLATE--
+{{ idm_advertising_banner("adsense", "main") }}
+{{ idm_advertising_banner("adsense", "ad_header") }}
+{{ idm_advertising_scripts("adsense") }}
+
+--DATA--
+return []
+
+--EXPECT--
+<ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="54555454" data-full-width-responsive="false" data-ad-format="auto" class="adsbygoogle" style="display:block;"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="4555454" data-full-width-responsive="true" data-ad-format="auto" class="adsbygoogle ads" style="display:inline-block;"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX11XXX9"></script>
