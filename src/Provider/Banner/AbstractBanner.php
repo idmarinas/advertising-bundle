@@ -90,7 +90,7 @@ abstract class AbstractBanner
 			$this->attributes->offsetUnset('layout-in-feed');
 		}
 
-		$this->attrStyle = 'adsbygoogle ';
+		$this->attrClass = 'adsbygoogle ';
 		if ($this->attributes->offsetExists('class')) {
 			$this->attrClass .= $this->attributes->offsetGet('class');
 			$this->attributes->offsetUnset('class');
