@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 13:19
+ * Last modified by "IDMarinas" on 12/03/2025, 15:33
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -62,7 +62,7 @@ final class IdmAdvertisingBundle extends AbstractBundle implements CompilerPassI
 		$providerHub->addMethodCall('disableAdvertising'); // Disabled by default
 
 		foreach ($this->extensionConfig as $network => $settings) {
-			if ('adsense' !== $network) {
+			if (null === $settings['service_network']) {
 				continue;
 			}
 
