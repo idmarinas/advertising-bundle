@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 14:25
+ * Last modified by "IDMarinas" on 12/03/2025, 14:15
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -99,7 +99,7 @@ abstract class AbstractBanner
 
 		$this->attrStyle = 'display:block; ';
 		if ($this->attributes->offsetExists('style')) {
-			$this->attrStyle = $this->attributes->offsetGet('style');
+			$this->attrStyle .= $this->attributes->offsetGet('style');
 			$this->attrStyle = u($this->attrStyle)->replace('; ', ';')->ensureEnd(';')->toString();
 			$this->attrStyle = implode(';', array_unique(explode(';', $this->attrStyle)));
 			$this->attributes->offsetUnset('style');
