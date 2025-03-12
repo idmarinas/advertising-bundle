@@ -3,7 +3,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 21:54
+ * Last modified by "IDMarinas" on 12/03/2025, 11:45
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -29,10 +29,10 @@ final class BundleInitializationTest extends KernelTestCase
 	public function testInitBundle (): void
 	{
 		// Boot the kernel.
-		static::bootKernel();
+		self::bootKernel();
 
 		// Get the container
-		$container = static::getContainer();
+		$container = self::getContainer();
 
 		$this->assertTrue(in_array('.idm_advertising.provider_hub', $container->getRemovedIds()));
 		$service = $container->get(ProviderHub::class);
