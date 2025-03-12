@@ -1,0 +1,12 @@
+--TEST--
+"idm_advertising_banner" function
+"idm_advertising_scripts" function
+
+--TEMPLATE--
+{{ idm_advertising_banner("adsense", "invalid_ad_header") }}
+{{ idm_advertising_scripts("adsense") }}
+
+--DATA--
+return []
+
+--EXPECT--
