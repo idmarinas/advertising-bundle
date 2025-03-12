@@ -35,6 +35,11 @@ abstract class AbstractBanner
 	private string      $attrStyle     = '';
 	private bool        $ignoredBanner = false;
 
+	public function __construct ()
+	{
+		$this->setAttributes([]);
+	}
+
 	public function getName (): string
 	{
 		return $this->name;
