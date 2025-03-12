@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 19:45
+ * Last modified by "IDMarinas" on 12/03/2025, 15:26
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -36,7 +36,7 @@ final class Kernel extends BaseKernel
 
 	public function configureRoutes (RoutingConfigurator $routes): void
 	{
-		$routes->import($this->getConfigDir() . '/routes.php');
+//		$routes->import($this->getConfigDir() . '/routes.php');
 //		$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
 
 		$extraRoutes = array_unique($this->extraRoutes);
