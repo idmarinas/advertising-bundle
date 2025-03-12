@@ -97,11 +97,10 @@ abstract class AbstractBanner
 			$this->attributes->offsetUnset('class');
 		}
 
-		$this->attrStyle = 'display:block; ';
+		$this->attrStyle = 'display:block;';
 		if ($this->attributes->offsetExists('style')) {
 			$this->attrStyle .= $this->attributes->offsetGet('style');
-			$this->attrStyle = u($this->attrStyle)->replace('; ', ';')->ensureEnd(';')->toString();
-			$this->attrStyle = implode(';', array_unique(explode(';', $this->attrStyle)));
+			$this->attrStyle = $this->processStyles($this->attrStyle);
 			$this->attributes->offsetUnset('style');
 		}
 
@@ -177,4 +176,23 @@ abstract class AbstractBanner
 	{
 		return '<div%attributes%>%content%</div>';
 	}
+
+	private function processStyles (string $style): string
+	{
+		$style = u($style)->trim()->replaceMatches('/( *;+ *)/', ';')->replaceMatches('/( *:+ *)/', ':')->split(';');
+		$style = array_map(fn($v) => $v->trim()->split(':'), $style);
+
+		array_walk($style, function (&$value) {
+			$v = $value;
+			$value = null;
+
+			if (count($v) > 1) {
+				/** @var UnicodeString[] $v */
+				$value[$v[0]->trim()->toString()] = $v[1]->trim()->toString();
+			}
+		});
+
+		return $this->processAttributes(array_merge(...array_filter($style)), true);
+	}
+
 }
