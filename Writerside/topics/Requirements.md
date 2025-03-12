@@ -5,7 +5,7 @@
 
 | **%project%** | **PHP Version**  |  **Symfony Version**  | **Status**                 |
 |---------------|:----------------:|:---------------------:|----------------------------|
-| `2.x`         | `8.2`  or higher |    `6.4` and `7.x`    | New features and bug fixes |
+| `2.x`         | `8.2`  or higher |   `6.4` and `^7.1`    | New features and bug fixes |
 | `1.x`         | `8.0`  or higher | `5.4` `6.4` and `7.x` | Bug fixes only             |
 
 [//]: # (| `master`      |      `^7.4`      |         `4.4`         | No longer maintained       |)
