@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 15:41
+ * Last modified by "IDMarinas" on 13/03/2025, 13:46
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -34,10 +34,17 @@ class CpmStarBanner extends AbstractBanner
 	public function getTemplate (): string
 	{
 		return sprintf(
-			'<script%3$s src="https://server.cpmstar.com/view.aspx?poolid=%1$s&rnd=%2$s&script=1"></script>',
+			'<script%3$s%4$s src="https://server.cpmstar.com/view.aspx?poolid=%1$s&rnd=%2$s&script=1"></script>',
 			$this->getSlot(),
 			random_int(100000, 999999),
-			$this->getNonce('script')
+			$this->getNonce('script'),
+			$this->processAttributes(
+				array_filter(
+					$this->getAttributes()->getArrayCopy(),
+					fn($k) => $k != 'src',
+					ARRAY_FILTER_USE_KEY
+				)
+			)
 		);
 	}
 }
