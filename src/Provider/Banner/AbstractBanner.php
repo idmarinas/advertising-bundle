@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 14:15
+ * Last modified by "IDMarinas" on 13/03/2025, 13:02
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,6 +20,7 @@
 namespace Idm\Bundle\Advertising\Provider\Banner;
 
 use ArrayObject;
+use Symfony\Component\String\UnicodeString;
 use function Symfony\Component\String\u;
 
 abstract class AbstractBanner
@@ -90,10 +91,10 @@ abstract class AbstractBanner
 			$this->attributes->offsetUnset('layout-in-feed');
 		}
 
-		$this->attrClass = 'adsbygoogle ';
+		$this->attrClass = 'adsbygoogle';
 		if ($this->attributes->offsetExists('class')) {
-			$this->attrClass .= $this->attributes->offsetGet('class');
-			$this->attrClass = implode(' ', array_unique(explode(' ', $this->attrClass)));
+			$this->attrClass .= ' ' . $this->attributes->offsetGet('class');
+			$this->attrClass = $this->processClasses($this->attrClass);
 			$this->attributes->offsetUnset('class');
 		}
 
@@ -177,6 +178,27 @@ abstract class AbstractBanner
 		return '<div%attributes%>%content%</div>';
 	}
 
+	public function processAttributes (array $attributes, bool $style = false): string
+	{
+		$attrs = '';
+
+		$tpl = $style ? '%1$s:%2$s;' : ' %1$s="%2$s"';
+		foreach ($attributes as $attr => $value) {
+			$attrs .= sprintf($tpl, $attr, $value);
+		}
+
+		return trim($attrs);
+	}
+
+	private function processClasses (string $class): string
+	{
+		$class = u($class)->trim()->split(' ');
+		$class = array_map(fn($v) => $v->trim()->toString(), $class);
+		$class = array_filter(array_unique($class));
+
+		return implode(' ', $class);
+	}
+
 	private function processStyles (string $style): string
 	{
 		$style = u($style)->trim()->replaceMatches('/( *;+ *)/', ';')->replaceMatches('/( *:+ *)/', ':')->split(';');
@@ -194,5 +216,4 @@ abstract class AbstractBanner
 
 		return $this->processAttributes(array_merge(...array_filter($style)), true);
 	}
-
 }
