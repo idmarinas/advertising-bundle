@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 13:02
+ * Last modified by "IDMarinas" on 13/03/2025, 13:16
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -187,7 +187,7 @@ abstract class AbstractBanner
 			$attrs .= sprintf($tpl, $attr, $value);
 		}
 
-		return trim($attrs);
+		return $attrs;
 	}
 
 	private function processClasses (string $class): string
