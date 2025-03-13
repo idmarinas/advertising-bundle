@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 17:39
+ * Last modified by "IDMarinas" on 13/03/2025, 20:48
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -29,28 +29,17 @@ namespace Idm\Bundle\Advertising\Provider\Banner
 namespace Idm\Bundle\Advertising\Tests\Twig\Extension
 {
 
-	use Idm\Bundle\Advertising\IdmAdvertisingBundle;
+	use App\Kernel;
 	use Idm\Bundle\Advertising\Provider\ProviderHub;
 	use Idm\Bundle\Advertising\Twig\Extension\AdvertisingExtension;
 	use Idm\Bundle\Advertising\Twig\Runtime\BannerRuntime;
 	use Idm\Bundle\Advertising\Twig\Runtime\ScriptsRuntime;
-	use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-	use Symfony\Component\Config\Loader\LoaderInterface;
 	use Symfony\Component\DependencyInjection\ContainerInterface;
-	use Symfony\Component\HttpKernel\Kernel;
 	use Twig\RuntimeLoader\FactoryRuntimeLoader;
 	use Twig\Test\IntegrationTestCase;
 
 	final class IntegrationTest extends IntegrationTestCase
 	{
-		protected function getContainer (): ContainerInterface
-		{
-			$kernel = new ExtensionTestingKernel();
-			$kernel->boot();
-
-			return $kernel->getContainer();
-		}
-
 		protected function getRuntimeLoaders (): iterable
 		{
 			$container = $this->getContainer();
@@ -74,26 +63,14 @@ namespace Idm\Bundle\Advertising\Tests\Twig\Extension
 				new AdvertisingExtension(),
 			];
 		}
-	}
 
-	class ExtensionTestingKernel extends Kernel
-	{
-		public function __construct ()
+		protected function getContainer (): ContainerInterface
 		{
-			parent::__construct('test', true);
-		}
+			$kernel = new Kernel('test', true);
+			$kernel->addExtraConfig(dirname(__DIR__, 2) . '/config/idm_advertising.php');
+			$kernel->boot();
 
-		public function registerBundles (): iterable
-		{
-			return [
-				new FrameworkBundle(),
-				new IdmAdvertisingBundle(),
-			];
-		}
-
-		public function registerContainerConfiguration (LoaderInterface $loader): void
-		{
-			$loader->load(dirname(__DIR__, 2) . '/config/idm_advertising.php');
+			return $kernel->getContainer();
 		}
 	}
 }
