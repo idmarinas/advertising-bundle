@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 12:55
+ * Last modified by "IDMarinas" on 13/03/2025, 18:29
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -43,7 +43,7 @@ class BannerTest extends KernelTestCase
 	{
 		$options = $options + [
 				'config' => static function (Kernel $kernel) {
-					$kernel->addExtraConfig(dirname(__DIR__) . '/Extension/idm_advertising.php');
+					$kernel->addExtraConfig(dirname(__DIR__, 2) . '/config/idm_advertising.php');
 				},
 			];
 
@@ -99,5 +99,4 @@ class BannerTest extends KernelTestCase
 			'The option "banner" with value 85.69745 is expected to be of type "string", but is of type "float".',
 		];
 	}
-
 }
