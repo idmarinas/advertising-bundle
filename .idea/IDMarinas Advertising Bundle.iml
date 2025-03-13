@@ -3,8 +3,6 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Idm\Bundle\Advertising\" />
-      <sourceFolder url="file://$MODULE_DIR$/factories" isTestSource="true" packagePrefix="Factory\" />
-      <sourceFolder url="file://$MODULE_DIR$/fixtures" isTestSource="true" packagePrefix="DataFixtures\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Idm\Bundle\Advertising\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/app/src" isTestSource="true" packagePrefix="App\" />
       <excludeFolder url="file://$MODULE_DIR$/var" />
@@ -94,6 +92,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
