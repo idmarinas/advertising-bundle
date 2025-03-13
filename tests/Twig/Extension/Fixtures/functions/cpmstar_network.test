@@ -4,6 +4,7 @@
 
 --TEMPLATE--
 {{ idm_advertising_banner("cpmstar", "main") }}
+{{ idm_advertising_banner("cpmstar", "head") }}
 {{ idm_advertising_scripts("cpmstar") }}
 
 --DATA--
@@ -11,3 +12,4 @@ return []
 
 --EXPECT--
 <script src="https://server.cpmstar.com/view.aspx?poolid=4555454&rnd=502632&script=1"></script>
+<script data-other="other-attribute" src="https://server.cpmstar.com/view.aspx?poolid=4559454&rnd=502632&script=1"></script>
