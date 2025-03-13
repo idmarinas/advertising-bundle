@@ -2,7 +2,7 @@
 /**
  * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 16:09
+ * Last modified by "IDMarinas" on 13/03/2025, 17:39
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -93,7 +93,7 @@ namespace Idm\Bundle\Advertising\Tests\Twig\Extension
 
 		public function registerContainerConfiguration (LoaderInterface $loader): void
 		{
-			$loader->load(__DIR__ . '/idm_advertising.php');
+			$loader->load(dirname(__DIR__, 2) . '/config/idm_advertising.php');
 		}
 	}
 }
