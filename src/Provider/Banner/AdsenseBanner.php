@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 18:42
+ * Last modified by "IDMarinas" on 13/03/2025, 13:49
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -103,6 +103,14 @@ final class AdsenseBanner extends AbstractBanner
 			AdsenseAdTypeEnum::InFeed,
 			AdsenseAdTypeEnum::Multiplex => $tpl . "\n" . $script,
 		};
+	}
+
+	public function setAttributes (array $attributes): self
+	{
+		$this->attrClass = 'adsbygoogle';
+		$this->attrStyle = 'display:block;';
+
+		return parent::setAttributes($attributes);
 	}
 
 	private function extraAttributesForBanner (): string

@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 13:16
+ * Last modified by "IDMarinas" on 13/03/2025, 13:49
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -25,6 +25,8 @@ use function Symfony\Component\String\u;
 
 abstract class AbstractBanner
 {
+	protected string    $attrClass     = '';
+	protected string    $attrStyle     = '';
 	private string      $name;
 	private int         $slot;
 	private string      $url;
@@ -32,8 +34,6 @@ abstract class AbstractBanner
 	private string      $nonceScript   = '';
 	private string      $nonceStyle    = '';
 	private string      $layoutInFeed  = '';
-	private string      $attrClass     = '';
-	private string      $attrStyle     = '';
 	private bool        $ignoredBanner = false;
 
 	public function __construct ()
@@ -91,14 +91,12 @@ abstract class AbstractBanner
 			$this->attributes->offsetUnset('layout-in-feed');
 		}
 
-		$this->attrClass = 'adsbygoogle';
 		if ($this->attributes->offsetExists('class')) {
 			$this->attrClass .= ' ' . $this->attributes->offsetGet('class');
 			$this->attrClass = $this->processClasses($this->attrClass);
 			$this->attributes->offsetUnset('class');
 		}
 
-		$this->attrStyle = 'display:block;';
 		if ($this->attributes->offsetExists('style')) {
 			$this->attrStyle .= $this->attributes->offsetGet('style');
 			$this->attrStyle = $this->processStyles($this->attrStyle);
