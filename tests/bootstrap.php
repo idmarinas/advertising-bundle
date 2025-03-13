@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 18:50
+ * Last modified by "IDMarinas" on 13/03/2025, 20:52
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -23,7 +23,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $filesystem = new Filesystem();
 
-$cache = dirname(__DIR__) . '/var/cache';
+$cache = dirname(__DIR__) . '/var/cache/test';
 
 if ($filesystem->exists($cache)) {
 	$filesystem->remove($cache);
