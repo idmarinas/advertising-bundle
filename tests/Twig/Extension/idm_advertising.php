@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 15:30
+ * Last modified by "IDMarinas" on 13/03/2025, 13:56
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -21,20 +21,34 @@ use Symfony\Config\IdmAdvertisingConfig;
 
 return function (IdmAdvertisingConfig $config) {
 	// @formatter:off
-	$config
-		->adsense()
-			->enabled(true)
-			->client('ca-pub-XXXXXXX11XXX9')
+	$adsense = $config->adsense()->enabled(true)->client('ca-pub-XXXXXXX11XXX9');
+	$adsense
 			->banner('ad_header')
 				->slot(4555454)
 				->responsive(true)
+				->attributes([
+					'class' => 'ads',
+					'style' => 'display: inline-block;'
+				])
+	;
+	$adsense->banner('main')
+		->slot(54555454)
+		->responsive(false)
+		->attributes([
+			'class' => 'adsbygoogle',
+			'style' => 'display:block',
+		])
 	;
 
-	$config->cpmstar()
-			->enabled(true)
-				->banner('main')
-					->slot(4555454)
-		;
+	$cpmstar = $config->cpmstar()->enabled(true);
+
+	$cpmstar->banner('main')->slot(4555454);
+	$cpmstar->banner('head')->slot(4559454)->attributes([
+		'class' => 'cpmstart',
+		'style' => 'display: inline-block;',
+		'src' => 'http://example.script',
+		'data-other' => 'other-attribute'
+	]);
 };
 
 /*
