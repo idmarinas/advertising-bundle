@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 16:25
+ * Last modified by "IDMarinas" on 13/03/2025, 13:00
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -58,5 +58,36 @@ class ScriptsTest extends KernelTestCase
 
 		$this->assertInstanceOf(Scripts::class, $component);
 		$this->assertSame('adsense', $component->network);
+
+		$component = $this->mountTwigComponent(
+			name: Scripts::class,
+			data: ['network' => null],
+		);
+
+		$this->assertInstanceOf(Scripts::class, $component);
+		$this->assertSame(null, $component->network);
+	}
+
+	/** @dataProvider invalidOptionsDataProvider */
+	public function testInvalidOptions (array $opts, string $expected): void
+	{
+		$this->expectExceptionMessage($expected);
+		$this->mountTwigComponent(
+			name: Scripts::class,
+			data: $opts,
+		);
+	}
+
+	private function invalidOptionsDataProvider (): iterable
+	{
+		yield [
+			['network' => 'invalid_network'],
+			'The option "network" with value "invalid_network" is invalid.',
+		];
+
+		yield [
+			['network' => 'null'],
+			'The option "network" with value "null" is invalid.',
+		];
 	}
 }
