@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 13:00
+ * Last modified by "IDMarinas" on 13/03/2025, 19:54
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -42,7 +42,7 @@ class ScriptsTest extends KernelTestCase
 	{
 		$options = $options + [
 				'config' => static function (Kernel $kernel) {
-					$kernel->addExtraConfig(dirname(__DIR__) . '/Extension/idm_advertising.php');
+					$kernel->addExtraConfig(dirname(__DIR__, 2) . '/config/idm_advertising.php');
 				},
 			];
 
