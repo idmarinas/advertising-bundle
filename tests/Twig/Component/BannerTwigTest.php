@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 18:45
+ * Last modified by "IDMarinas" on 13/03/2025, 20:00
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -40,8 +40,7 @@ class BannerTwigTest extends KernelTestCase
 	protected static function bootKernel (array $options = []): KernelInterface
 	{
 		$options = $options + [
-				'environment' => 'test1',
-				'config'      => static function (Kernel $kernel) {
+				'config' => static function (Kernel $kernel) {
 					$kernel->addExtraConfig(dirname(__DIR__, 2) . '/config/idm_advertising.php');
 				},
 			];
