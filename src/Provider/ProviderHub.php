@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 13:59
+ * Last modified by "IDMarinas" on 14/03/2025, 12:44
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -40,10 +40,6 @@ final class ProviderHub
 	 */
 	public function getNetwork (string|NetworkEnum $network): ?NetworkInterface
 	{
-		if (!$this->isAdvertisingEnabled()) {
-			return null;
-		}
-
 		$service = match ($network) {
 			NetworkEnum::Adsense,
 			NetworkEnum::Adsense->value => $this->getAdsenseNetwork(),
