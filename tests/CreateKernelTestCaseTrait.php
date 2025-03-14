@@ -2,12 +2,12 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 19:43
+ * Last modified by "IDMarinas" on 14/03/2025, 13:43
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @file    KernelTestCaseTrait.php
+ * @file    CreateKernelTestCaseTrait.php
  * @date    13/03/2025
  * @time    19:40
  *
@@ -19,12 +19,14 @@
 
 namespace Idm\Bundle\Advertising\Tests;
 
+use App\Kernel;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-trait KernelTestCaseTrait
+trait CreateKernelTestCaseTrait
 {
 	protected static function createKernel (array $options = []): KernelInterface
 	{
+		/** @var Kernel $kernel */
 		$kernel = parent::createKernel($options);
 		$kernel->handleOptions($options);
 
