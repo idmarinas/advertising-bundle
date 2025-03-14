@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE topic
+	SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic
+	id="Content"
+	title="Content"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+>
+
+	<section-starting-page>
+		<title>Included in %project%</title>
+		<description>
+			A short summary of what %project% includes and how it can be used in your project.
+		</description>
+
+		<!--    Add up to 2 topics that you want to promote. Use the "type" attribute to select an icon.    -->
+		<spotlight>
+			<a href="Quickstart.md" type="start" />
+			<a href="About.topic" type="account" />
+		</spotlight>
+	</section-starting-page>
+</topic>
