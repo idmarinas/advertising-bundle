@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 18:29
+ * Last modified by "IDMarinas" on 14/03/2025, 16:00
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,6 +20,7 @@
 namespace Idm\Bundle\Advertising\Tests\Twig\Component;
 
 use App\Kernel;
+use Idm\Bundle\Advertising\Tests\CreateKernelTestCaseTrait;
 use Idm\Bundle\Advertising\Twig\Component\Banner;
 use stdClass;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -29,15 +30,7 @@ use Symfony\UX\TwigComponent\Test\InteractsWithTwigComponents;
 class BannerTest extends KernelTestCase
 {
 	use InteractsWithTwigComponents;
-
-	protected static function createKernel (array $options = []): KernelInterface
-	{
-		/** @var Kernel $kernel */
-		$kernel = parent::createKernel($options);
-		$kernel->handleOptions($options);
-
-		return $kernel;
-	}
+	use CreateKernelTestCaseTrait;
 
 	protected static function bootKernel (array $options = []): KernelInterface
 	{
