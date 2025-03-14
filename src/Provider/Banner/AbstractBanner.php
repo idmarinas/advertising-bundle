@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 15:50
+ * Last modified by "IDMarinas" on 14/03/2025, 14:21
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -34,7 +34,6 @@ abstract class AbstractBanner
 	private ArrayObject $attributes;
 	private string      $nonceScript   = '';
 	private string      $nonceStyle    = '';
-	private string      $layoutInFeed  = '';
 	private bool        $ignoredBanner = false;
 
 	public function __construct ()
@@ -87,11 +86,6 @@ abstract class AbstractBanner
 	{
 		$this->attributes = new ArrayObject($attributes);
 
-		if ($this->attributes->offsetExists('layout-in-feed')) {
-			$this->layoutInFeed = $this->attributes->offsetGet('layout-in-feed');
-			$this->attributes->offsetUnset('layout-in-feed');
-		}
-
 		if ($this->attributes->offsetExists('class')) {
 			$this->attrClass .= ' ' . $this->attributes->offsetGet('class');
 			$this->attrClass = $this->processClasses($this->attrClass);
@@ -125,11 +119,6 @@ abstract class AbstractBanner
 	public function setNonceStyle (string $nonceStyle): void
 	{
 		$this->nonceStyle = $nonceStyle;
-	}
-
-	public function getLayoutInFeed (): string
-	{
-		return $this->layoutInFeed;
 	}
 
 	public function getAttrClass (): string

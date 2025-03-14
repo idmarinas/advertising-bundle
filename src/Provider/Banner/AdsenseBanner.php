@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 13:49
+ * Last modified by "IDMarinas" on 14/03/2025, 14:24
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -28,6 +28,7 @@ final class AdsenseBanner extends AbstractBanner
 	private AdsenseAdTypeEnum   $type;
 	private AdsenseAdFormatEnum $format;
 	private bool                $responsive;
+	private string              $layoutInFeed = '';
 
 	public function getClient (): string
 	{
@@ -77,6 +78,11 @@ final class AdsenseBanner extends AbstractBanner
 		return $this;
 	}
 
+	public function getLayoutInFeed (): string
+	{
+		return $this->layoutInFeed;
+	}
+
 	public function getTemplate (): string
 	{
 		$style = $this->getAttrStyle() . ($this->getType() == AdsenseAdTypeEnum::InArticle ? ' text-align:center;' : '');
@@ -109,6 +115,11 @@ final class AdsenseBanner extends AbstractBanner
 	{
 		$this->attrClass = 'adsbygoogle';
 		$this->attrStyle = 'display:block;';
+
+		if (!empty($attributes['layout-in-feed'])) {
+			$this->layoutInFeed = $attributes['layout-in-feed'];
+			unset($attributes['layout-in-feed']);
+		}
 
 		return parent::setAttributes($attributes);
 	}
