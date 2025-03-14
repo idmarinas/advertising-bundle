@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE buildprofiles SYSTEM "https://resources.jetbrains.com/writerside/1.0/build-profiles.dtd">
+<buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
+
+	<sitemap priority="0.35" change-frequency="monthly" />
+
+	<variables>
+		<contribute-url>https://www.github.com/%package_name%/edit/%branch%/Writerside</contribute-url>
+		<enable-contribution>true</enable-contribution>
+	</variables>
+
+	<icons>
+		<shared-src>icons</shared-src>
+	</icons>
+
+	<footer>
+		<social type="blog" href="https://bit.ly/m/idmarinas">See my other projects</social>
+		<social type="twitter" href="https://x.com/idmarinas" />
+
+		<link href="https://www.github.com/%package_name%/issues">Issues</link>
+
+		<copyright>2025-present IDMarinas</copyright>
+	</footer>
+
+	<build-profile instance="iab">
+		<variables>
+			<noindex-content>false</noindex-content>
+			<og-twitter>@idmarinas</og-twitter>
+		</variables>
+	</build-profile>
+
+</buildprofiles>
