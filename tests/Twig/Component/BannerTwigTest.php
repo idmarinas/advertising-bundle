@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 13:49
+ * Last modified by "IDMarinas" on 14/03/2025, 18:34
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -43,7 +43,7 @@ class BannerTwigTest extends KernelTestCase
 
 	public function testRenderTwigComponent (): void
 	{
-		$tpl = '<twig:IdmAdvertising:Show:Banner network="adsense" banner="main" />';
+		$tpl = '<twig:IdmAdvertising:Banner network="adsense" banner="main" />';
 		/** @var Environment $twig */
 		$twig = self::getContainer()->get('twig');
 		$output = $twig->createTemplate($tpl)->render();
@@ -61,7 +61,7 @@ EXPECTED;
 		self::getContainer()->get(ProviderHub::class)->disableAdvertising();
 
 		$tpl = <<<'TPL'
-<twig:IdmAdvertising:Show:Scripts network="adsense" />
+<twig:IdmAdvertising:Scripts network="adsense" />
 TPL;
 
 		/** @var Environment $twig */

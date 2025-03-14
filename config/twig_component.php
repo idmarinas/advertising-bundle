@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 16:32
+ * Last modified by "IDMarinas" on 14/03/2025, 18:29
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -28,8 +28,8 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 	$container
 		->services()
 			->set(Banner::class)
-				->tag('twig.component', ['key' => 'IdmAdvertising:Show:Banner'])
+				->tag('twig.component', ['key' => 'IdmAdvertising:Banner'])
 			->set(Scripts::class)
-				->tag('twig.component', ['key' => 'IdmAdvertising:Show:Scripts'])
+				->tag('twig.component', ['key' => 'IdmAdvertising:Scripts'])
 	;
 };
