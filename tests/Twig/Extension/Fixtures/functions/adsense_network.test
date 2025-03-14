@@ -7,6 +7,10 @@
 
 {{ idm_advertising_banner("adsense", "ad_header") }}
 
+{{ idm_advertising_banner("adsense", "article") }}
+
+{{ idm_advertising_banner("adsense", "feed") }}
+
 {{ idm_advertising_scripts("adsense") }}
 
 --DATA--
@@ -17,6 +21,12 @@ return []
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="4555454" data-full-width-responsive="true" data-ad-format="auto" class="adsbygoogle ads" style="display:inline-block;"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="45345454" data-ad-layout="in-article" data-ad-format="fluid" class="adsbygoogle" style="display:block; text-align:center;"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+<ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="4559454" data-ad-layout-key="-6t+ed+2i-1n-4w" data-ad-format="fluid" class="adsbygoogle" style="display:block;"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
 <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX11XXX9"></script>

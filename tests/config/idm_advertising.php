@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 13:56
+ * Last modified by "IDMarinas" on 14/03/2025, 14:27
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -17,6 +17,7 @@
  * @since   2.0.0
  */
 
+use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
 use Symfony\Config\IdmAdvertisingConfig;
 
 return function (IdmAdvertisingConfig $config) {
@@ -37,6 +38,17 @@ return function (IdmAdvertisingConfig $config) {
 		->attributes([
 			'class' => 'adsbygoogle',
 			'style' => 'display:block',
+		])
+	;
+	$adsense->banner('article')
+		->slot(45345454)
+		->type(AdsenseAdTypeEnum::InArticle->value)
+	;
+	$adsense->banner('feed')
+		->slot(4559454)
+		->type(AdsenseAdTypeEnum::InFeed->value)
+		->attributes([
+			'layout-in-feed' => '-6t+ed+2i-1n-4w'
 		])
 	;
 
