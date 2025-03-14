@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 12:44
+ * Last modified by "IDMarinas" on 14/03/2025, 12:59
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -45,7 +45,8 @@ final class ProviderHub
 			NetworkEnum::Adsense->value => $this->getAdsenseNetwork(),
 			NetworkEnum::CpmStar,
 			NetworkEnum::CpmStar->value => $this->getCpmstarNetwork(),
-			NetworkEnum::Generic        => $this->getGenericNetwork(),
+			NetworkEnum::Generic,
+			NetworkEnum::Generic->value => $this->getGenericNetwork(),
 			default                     => throw new InvalidArgumentException("Network [$network] not supported"),
 		};
 
