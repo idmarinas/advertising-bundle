@@ -1,7 +1,9 @@
 --TEST--
+"idm_advertising_banner" function
 "idm_advertising_scripts" function
 
 --TEMPLATE--
+{{ idm_advertising_banner("generic", "main") }}
 {{ idm_advertising_scripts("generic") }}
 
 --DATA--
