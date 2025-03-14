@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+<labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+
+	<primary-label
+		id="with-flex"
+		name="With Symfony Flex"
+		short-name="Flex"
+		href="https://symfony.com/doc/current/setup/flex.html"
+	>
+		Info about Symfony Flex
+	</primary-label>
+
+	<primary-label
+		id="with-out-flex"
+		name="Without Symfony Flex"
+		short-name="No-Flex"
+		color="red"
+		href="https://symfony.com/doc/current/setup/flex.html"
+	>
+		Upgrading Existing Applications to Symfony Flex
+	</primary-label>
+
+	<secondary-label id="wip" name="WIP" color="purple">Work in progress</secondary-label>
+	<secondary-label id="beta" name="β" color="tangerine">Beta</secondary-label>
+
+	<secondary-label id="1.0.0" name="1.0.0" color="red">New in version 1.0.0</secondary-label>
+	<secondary-label id="2.0.0" name="2.0.0" color="blue">New in version 1.0.0</secondary-label>
+</labels>
