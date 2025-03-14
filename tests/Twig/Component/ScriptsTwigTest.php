@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 13:43
+ * Last modified by "IDMarinas" on 14/03/2025, 13:49
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,6 +20,7 @@
 namespace Idm\Bundle\Advertising\Tests\Twig\Component;
 
 use App\Kernel;
+use Idm\Bundle\Advertising\Provider\ProviderHub;
 use Idm\Bundle\Advertising\Tests\CreateKernelTestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -73,6 +74,24 @@ TPL;
 <ins data-ad-client="ca-pub-XXXXXXX11XXX9" data-ad-slot="54555454" data-full-width-responsive="false" data-ad-format="auto" class="adsbygoogle" style="display:block;"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX11XXX9"></script>
+EXPECTED;
+
+		$this->assertSame($expected, $output);
+	}
+
+	public function testAdvertisingDisabled ()
+	{
+		self::getContainer()->get(ProviderHub::class)->disableAdvertising();
+
+		$tpl = <<<'TPL'
+<twig:IdmAdvertising:Show:Scripts network="adsense" />
+TPL;
+
+		/** @var Environment $twig */
+		$twig = self::getContainer()->get('twig');
+		$output = $twig->createTemplate($tpl)->render();
+
+		$expected = <<<'EXPECTED'
 EXPECTED;
 
 		$this->assertSame($expected, $output);
