@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 13:08
+ * Last modified by "IDMarinas" on 14/03/2025, 13:30
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -19,21 +19,25 @@
 
 namespace Idm\Bundle\Advertising\Provider\ProviderHub;
 
-use Idm\Bundle\Advertising\Provider\Network\GenericNetwork;
+use Idm\Bundle\Advertising\Provider\Network\AbstractNetwork;
 
 trait GenericTrait
 {
-    private GenericNetwork $genericNetwork;
+	private AbstractNetwork $genericNetwork;
 
-    public function getGenericNetwork (): GenericNetwork
-    {
-        return $this->genericNetwork;
-    }
+	public function getGenericNetwork (): ?AbstractNetwork
+	{
+		if (!isset($this->genericNetwork)) {
+			return null;
+		}
 
-    public function setGenericNetwork (GenericNetwork $network): self
-    {
-        $this->genericNetwork = $network;
+		return $this->genericNetwork;
+	}
 
-        return $this;
-    }
+	public function setGenericNetwork (AbstractNetwork $network): self
+	{
+		$this->genericNetwork = $network;
+
+		return $this;
+	}
 }

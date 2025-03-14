@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 13:06
+ * Last modified by "IDMarinas" on 14/03/2025, 13:29
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -25,8 +25,12 @@ trait CpmStarTrait
 {
 	private CpmStarNetwork $cpmstarNetwork;
 
-	public function getCpmstarNetwork (): CpmStarNetwork
+	public function getCpmstarNetwork (): ?CpmStarNetwork
 	{
+		if (!isset($this->cpmstarNetwork)) {
+			return null;
+		}
+
 		return $this->cpmstarNetwork;
 	}
 

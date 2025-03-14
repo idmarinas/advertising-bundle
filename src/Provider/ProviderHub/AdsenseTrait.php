@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/03/2025, 13:05
+ * Last modified by "IDMarinas" on 14/03/2025, 13:28
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -25,8 +25,12 @@ trait AdsenseTrait
 {
 	private AdsenseNetwork $adsenseNetwork;
 
-	public function getAdsenseNetwork (): AdsenseNetwork
+	public function getAdsenseNetwork (): ?AdsenseNetwork
 	{
+		if (!isset($this->adsenseNetwork)) {
+			return null;
+		}
+
 		return $this->adsenseNetwork;
 	}
 
