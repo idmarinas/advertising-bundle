@@ -2,12 +2,12 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 16:19
+ * Last modified by "IDMarinas" on 14/03/2025, 16:54
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @file    invalid_network_config.php
+ * @file    config_invalid_network.php
  * @date    07/03/2025
  * @time    15:31
  *
@@ -29,6 +29,6 @@ return static function (ContainerConfigurator $container) {
 				->autowire()
 				->autoconfigure()
 	;
-	$container->import(__DIR__.'/idm_advertising_invalid_network.php');
+	$container->import(__DIR__.'/idm_invalid_network.php');
 	// @formatter:on
 };
