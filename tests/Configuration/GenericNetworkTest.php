@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 17:30
+ * Last modified by "IDMarinas" on 14/03/2025, 18:03
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -57,10 +57,15 @@ class GenericNetworkTest extends KernelTestCase
 		$banner->setNonceStyle($nonceStyle);
 
 		$this->assertEquals($nonceStyle, $banner->getNonceStyle());
+		$this->assertEquals(' nonce="' . $nonceStyle . '"', $banner->getNonce('style'));
 
 		$nonceScript = uniqid();
 		$banner->setNonceScript($nonceScript);
 
 		$this->assertEquals($nonceScript, $banner->getNonceScript());
+		$this->assertEquals(' nonce="' . $nonceScript . '"', $banner->getNonce('script'));
+
+		$this->assertNull($provider->getNetwork('adsense'));
+		$this->assertNull($provider->getNetwork('cpmstar'));
 	}
 }
