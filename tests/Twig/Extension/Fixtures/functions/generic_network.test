@@ -1,0 +1,10 @@
+--TEST--
+"idm_advertising_scripts" function
+
+--TEMPLATE--
+{{ idm_advertising_scripts("generic") }}
+
+--DATA--
+return []
+
+--EXPECT--
