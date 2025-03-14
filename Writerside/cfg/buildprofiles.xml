@@ -25,8 +25,8 @@
 
 	<build-profile instance="iab">
 		<variables>
-			<noindex-content>false</noindex-content>
 			<og-twitter>@idmarinas</og-twitter>
+			<noindex-content>false</noindex-content>
 		</variables>
 	</build-profile>
 
