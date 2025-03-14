@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 17:21
+ * Last modified by "IDMarinas" on 14/03/2025, 17:30
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -27,6 +27,6 @@ class GenericBanner extends AbstractBanner
 	{
 		$tpl = parent::getTemplate();
 
-		return str_replace(['%attributes%' => ' data-enum="enum"'], ['%content%' => '<span>Ad Generic</span>'], $tpl);
+		return str_replace(['%attributes%', '%content%'], [' data-enum="enum"', '<span>Ad Generic</span>'], $tpl);
 	}
 }
