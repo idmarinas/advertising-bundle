@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/03/2025, 19:50
+ * Last modified by "IDMarinas" on 14/03/2025, 13:43
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,14 +20,14 @@
 namespace Idm\Bundle\Advertising\Tests\Twig\Component;
 
 use App\Kernel;
-use Idm\Bundle\Advertising\Tests\KernelTestCaseTrait;
+use Idm\Bundle\Advertising\Tests\CreateKernelTestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Twig\Environment;
 
 class ScriptsTwigTest extends KernelTestCase
 {
-	use KernelTestCaseTrait;
+	use CreateKernelTestCaseTrait;
 
 	public static function setUpBeforeClass (): void {}
 
