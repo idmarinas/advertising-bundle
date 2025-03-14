@@ -2,12 +2,12 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 16:11
+ * Last modified by "IDMarinas" on 14/03/2025, 16:25
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
  *
- * @file    idm_advertising_invalid_network.php
+ * @file    idm_invalid_network.php
  * @date    14/03/2025
  * @time    16:04
  *
