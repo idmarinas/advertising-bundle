@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 12:59
+ * Last modified by "IDMarinas" on 14/03/2025, 13:36
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -50,7 +50,7 @@ final class ProviderHub
 			default                     => throw new InvalidArgumentException("Network [$network] not supported"),
 		};
 
-		return $service->isNetworkEnabled() ? $service : null;
+		return $service?->isNetworkEnabled() ? $service : null;
 	}
 
 	public function getScriptsUrls (?string $network = null): array
