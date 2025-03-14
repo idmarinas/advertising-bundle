@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 14:24
+ * Last modified by "IDMarinas" on 14/03/2025, 17:37
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -102,7 +102,7 @@ final class AdsenseBanner extends AbstractBanner
 			$this->getNonce('script')
 		);
 
-		return match ($this->type) {
+		return match ($this->getType()) {
 			AdsenseAdTypeEnum::Search    => '<div class="gcse-search"></div>',
 			AdsenseAdTypeEnum::Display,
 			AdsenseAdTypeEnum::InArticle,
@@ -126,14 +126,14 @@ final class AdsenseBanner extends AbstractBanner
 
 	private function extraAttributesForBanner (): string
 	{
-		$format = match ($this->type) {
+		$format = match ($this->getType()) {
 			AdsenseAdTypeEnum::InArticle,
 			AdsenseAdTypeEnum::InFeed    => AdsenseAdFormatEnum::Fluid->value,
 			AdsenseAdTypeEnum::Multiplex => 'autorelaxed',
-			default                      => $this->format->value,
+			default                      => $this->getFormat()->value,
 		};
 
-		$attributes = match ($this->type) {
+		$attributes = match ($this->getType()) {
 			AdsenseAdTypeEnum::InArticle => ' data-ad-layout="in-article"',
 			AdsenseAdTypeEnum::Display   => ' data-full-width-responsive="' . var_export($this->isResponsive(), true) . '"',
 			AdsenseAdTypeEnum::InFeed    => ' data-ad-layout-key="' . $this->getLayoutInFeed() . '"',
