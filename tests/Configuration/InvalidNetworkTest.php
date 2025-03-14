@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 16:20
+ * Last modified by "IDMarinas" on 14/03/2025, 16:54
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -20,9 +20,9 @@
 namespace Idm\Bundle\Advertising\Tests\Configuration;
 
 use App\Kernel;
+use Idm\Bundle\Advertising\Provider\ProviderHub;
 use Idm\Bundle\Advertising\Tests\CreateKernelTestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\UX\TwigComponent\Test\InteractsWithTwigComponents;
 
 class InvalidNetworkTest extends KernelTestCase
@@ -30,22 +30,30 @@ class InvalidNetworkTest extends KernelTestCase
 	use InteractsWithTwigComponents;
 	use CreateKernelTestCaseTrait;
 
-	protected static function bootKernel (array $options = []): KernelInterface
-	{
-		$options = $options + [
-				'config' => static function (Kernel $kernel) {
-					$kernel->addExtraConfig(dirname(__DIR__) . '/config/invalid_network_config.php');
-				},
-			];
-
-		return parent::bootKernel($options);
-	}
-
 	public function testInvalidNetwork ()
 	{
 		$this->expectExceptionMessage(
 			'Somehow the "App\Provider\Network\InvalidNetwork" network is not implement the interface Idm\Bundle\Advertising\Provider\Network\NetworkInterface.'
 		);
-		self::getContainer();
+
+		self::bootKernel([
+			'config' => static function (Kernel $kernel) {
+				$kernel->addExtraConfig(dirname(__DIR__) . '/config/config_invalid_network.php');
+			},
+		]);
+	}
+
+	public function testNotNetworks ()
+	{
+		self::ensureKernelShutdown();
+		self::bootKernel();
+
+		$provider = self::getContainer()->get(ProviderHub::class);
+
+		$this->assertFalse($provider->isAdvertisingEnabled());
+
+		$this->assertNull($provider->getNetwork('adsense'));
+		$this->assertNull($provider->getNetwork('cpmstar'));
+		$this->assertNull($provider->getNetwork('generic'));
 	}
 }
