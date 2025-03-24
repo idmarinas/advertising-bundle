@@ -15,30 +15,30 @@ Framework versions `6.4` and `^7.1` are supported and also Bundle refactoring.
 
 ### Added
 
-* Added compatibility with Twig Component. Can use `<twig:IdmAdvertising:Banner network="adsense" banner="main" />`
+* _Added_ compatibility with Twig Component. Can use `<twig:IdmAdvertising:Banner network="adsense" banner="main" />`
   and `<twig:IdmAdvertising:Scripts network="adsense" />`
-* Added new **Events**
+* _Added_ new **Events**
 	* `NetworkEvent`
 	* `TwigBannerEvent`
 	* `TwigScriptsEvent`
-* Added new provider for networks **ProviderHub**
-* Added Twig Extension `AdvertisingExtension`
-	* Added `BannerRuntime` and `ScriptsRuntime` for Twig Extension
+* _Added_ new provider for networks **ProviderHub**
+* _Added_ Twig Extension `AdvertisingExtension`
+	* _Added_ `BannerRuntime` and `ScriptsRuntime` for Twig Extension
 
 ### Changed
 
 The whole Bundle is refactored to use more the concept of objects. The new structure is used for Symfony Bundles
 
-* Changed **Networks** and **Banners** are objects now
-* Changed Events receive this objects and can manipulate and changed or deleted
-* Changed now only 3 networks are supported: "adsense", "cpmstar" and "generic".
+* _Changed_ **Networks** and **Banners** are objects now
+* _Changed_ Events receive this objects and can manipulate and changed or deleted
+* _Changed_ now only 3 networks are supported: "adsense", "cpmstar" and "generic".
 	* All 3 can be customized. The “generic” network is designed to be extended to create a customized network.
-* Changed **Twig functions**
+* _Changed_ **Twig functions**
 	* Rename `advertising_banner` to `idm_advertising_banner`
 	* Rename `advertising_scripts` to `idm_advertising_scripts`
 
 ### Breaking changes
 
-* BC removed old Network Provider `NetworkRegister`
-* BC removed old event `TwigGeneric`
-* BC removed old Twig Extension `AdvertisingGeneric`
+* _BC_ removed old Network Provider `NetworkRegister`
+* _BC_ removed old event `TwigGeneric`
+* _BC_ removed old Twig Extension `AdvertisingGeneric`
