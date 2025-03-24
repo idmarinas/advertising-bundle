@@ -71,7 +71,7 @@ idm_advertising:
 
 ### Showing banners
 
-> Cuando quieras añadir un banner a una página puedes usar uno de los dos métodos
+> When you want to add a banner to a page you can use one of the following two methods
 > {style="note"}
 
 #### Twig Function
