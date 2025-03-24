@@ -1,6 +1,12 @@
 # Changelog
 
-## 2.0.0 - (2025-03-DD)
+## 2.0.1 - (2025-03-DD)
+
+### Fixed
+
+* _Fixed_ `Quickstart.md` text that was in Spanish is translated
+
+## 2.0.0 - (2025-03-14)
 
 ## Release highlights
 
