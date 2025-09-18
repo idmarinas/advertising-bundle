@@ -2,7 +2,7 @@
 <project version="4">
   <component name="MessDetector">
     <phpmd_settings>
-      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="56b53453-b60c-4446-8e36-00bc696a53b7" timeout="30000" />
+      <phpmd_by_interpreter asDefaultInterpreter="true" interpreter_id="6ee29e12-f5fd-4bff-bd0a-eba63ea7b33d" timeout="30000" />
     </phpmd_settings>
   </component>
   <component name="MessDetectorOptionsConfiguration">
@@ -17,7 +17,7 @@
   </component>
   <component name="PhpCodeSniffer">
     <phpcs_settings>
-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="56b53453-b60c-4446-8e36-00bc696a53b7" timeout="30000" />
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="6ee29e12-f5fd-4bff-bd0a-eba63ea7b33d" timeout="30000" />
     </phpcs_settings>
   </component>
   <component name="PhpIncludePathManager">
@@ -127,14 +127,14 @@
   <component name="PhpInterpretersPhpInfoCache">
     <phpInfoCache>
       <interpreter name="php-docker">
-        <phpinfo binary_type="PHP" php_cli="/usr/local/bin/php" path_separator=":" version="8.2.26">
-          <additional_php_ini>/usr/local/etc/php/conf.d/common.ini, /usr/local/etc/php/conf.d/disable_functions.ini, /usr/local/etc/php/conf.d/docker-fpm.ini, /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini, /usr/local/etc/php/conf.d/docker-php-ext-exif.ini, /usr/local/etc/php/conf.d/docker-php-ext-gd.ini, /usr/local/etc/php/conf.d/docker-php-ext-intl.ini, /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini, /usr/local/etc/php/conf.d/docker-php-ext-pcntl.ini, /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini, /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini, /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini, /usr/local/etc/php/conf.d/docker-php-ext-xsl.ini, /usr/local/etc/php/conf.d/docker-php-ext-zip.ini, /usr/local/etc/php/conf.d/opcache.ini, /usr/local/etc/php/conf.d/php.ini</additional_php_ini>
+        <phpinfo binary_type="PHP" php_cli="/usr/local/bin/php" path_separator=":" version="8.2.29">
+          <additional_php_ini>/usr/local/etc/php/conf.d/00_disable_functions.ini, /usr/local/etc/php/conf.d/00_opcache.ini, /usr/local/etc/php/conf.d/01_opcache.ini, /usr/local/etc/php/conf.d/01_php.ini, /usr/local/etc/php/conf.d/docker-fpm.ini, /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini, /usr/local/etc/php/conf.d/docker-php-ext-exif.ini, /usr/local/etc/php/conf.d/docker-php-ext-gd.ini, /usr/local/etc/php/conf.d/docker-php-ext-intl.ini, /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini, /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini, /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini, /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini, /usr/local/etc/php/conf.d/docker-php-ext-zip.ini</additional_php_ini>
           <configuration_file>/usr/local/etc/php/php.ini</configuration_file>
           <configuration_options>
             <configuration_option name="include_path" value=".:/usr/local/lib/php" />
           </configuration_options>
           <debuggers>
-            <debugger_info debugger="xdebug" debugger_version="3.4.0">
+            <debugger_info debugger="xdebug" debugger_version="3.4.5">
               <debug_extensions />
             </debugger_info>
           </debuggers>
@@ -163,7 +163,6 @@
             <extension name="mbstring" />
             <extension name="mysqlnd" />
             <extension name="openssl" />
-            <extension name="pcntl" />
             <extension name="pcre" />
             <extension name="pdo_mysql" />
             <extension name="pdo_sqlite" />
@@ -179,7 +178,6 @@
             <extension name="xml" />
             <extension name="xmlreader" />
             <extension name="xmlwriter" />
-            <extension name="xsl" />
             <extension name="zip" />
             <extension name="zlib" />
           </loaded_extensions>
