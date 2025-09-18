@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/03/2025, 20:57
+ * Last modified by "IDMarinas" on 18/09/2025, 17:05
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -46,8 +46,10 @@ final readonly class BannerRuntime implements RuntimeExtensionInterface
 
 		$banner = $event->getBanner();
 
-		if (null == $banner || $banner->isIgnoredBanner()) {
+		if (null == $banner || $banner->isIgnored()) {
 			return '';
+		} elseif ($banner->isAlternative()) {
+			return $banner->getAlternativeBanner();
 		}
 
 		$this->providerHub->setScriptUrls($networkName, $banner->getUrl());

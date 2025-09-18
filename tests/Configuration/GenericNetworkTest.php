@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 18:03
+ * Last modified by "IDMarinas" on 18/09/2025, 17:09
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -49,9 +49,9 @@ class GenericNetworkTest extends KernelTestCase
 
 		$this->assertEquals('<div data-enum="enum"><span>Ad Generic</span></div>', $banner->getTemplate());
 
-		$banner->setIgnoredBanner(true);
+		$banner->setIgnored(true);
 
-		$this->assertTrue($banner->isIgnoredBanner());
+		$this->assertTrue($banner->isIgnored());
 
 		$nonceStyle = uniqid();
 		$banner->setNonceStyle($nonceStyle);

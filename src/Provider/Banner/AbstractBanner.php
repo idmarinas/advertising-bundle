@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 14:21
+ * Last modified by "IDMarinas" on 18/09/2025, 17:04
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -26,15 +26,17 @@ abstract class AbstractBanner
 {
 	use ProcessTrait;
 
-	protected string    $attrClass     = '';
-	protected string    $attrStyle     = '';
+	protected string    $attrClass    = '';
+	protected string    $attrStyle    = '';
 	private string      $name;
 	private int         $slot;
 	private string      $url;
 	private ArrayObject $attributes;
-	private string      $nonceScript   = '';
-	private string      $nonceStyle    = '';
-	private bool        $ignoredBanner = false;
+	private string      $nonceScript  = '';
+	private string      $nonceStyle   = '';
+	private bool        $ignored      = false;
+	private bool        $alternatived = false;
+	private string      $altBanner    = '<span>Ad Dummy</span>';
 
 	public function __construct ()
 	{
@@ -131,14 +133,49 @@ abstract class AbstractBanner
 		return $this->attrStyle;
 	}
 
-	public function isIgnoredBanner (): bool
+	/**
+	 * Check if the banner should be completely ignored and not displayed at all
+	 */
+	public function isIgnored (): bool
 	{
-		return $this->ignoredBanner;
+		return $this->ignored;
 	}
 
-	public function setIgnoredBanner (bool $ignoredBanner): self
+	public function setIgnored (bool $ignored): self
 	{
-		$this->ignoredBanner = $ignoredBanner;
+		$this->ignored = $ignored;
+
+		return $this;
+	}
+
+	/**
+	 * Check if the alternative banner should be displayed instead of the real advertisement
+	 */
+	public function isAlternative (): bool
+	{
+		return $this->alternatived;
+	}
+
+	/**
+	 * Enable or disable the alternative banner display
+	 *
+	 * @param bool $enabled True to show alternative banner, false to show real advertisement
+	 */
+	public function setAlternative (bool $enabled): self
+	{
+		$this->alternatived = $enabled;
+
+		return $this;
+	}
+
+	public function getAlternativeBanner (): string
+	{
+		return $this->altBanner;
+	}
+
+	public function setAlternativeBanner (string $banner): self
+	{
+		$this->altBanner = $banner;
 
 		return $this;
 	}
