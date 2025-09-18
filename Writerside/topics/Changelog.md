@@ -4,7 +4,7 @@
 
 ### Fixed
 
-* _Fixed_ `Quickstart.md` text that was in Spanish is translated
+* _Fixed_ `Quickstart.md` text in Spanish is translated
 
 ## 2.0.0 - (2025-03-14)
 
@@ -30,8 +30,8 @@ Framework versions `6.4` and `^7.1` are supported and also Bundle refactoring.
 The whole Bundle is refactored to use more the concept of objects. The new structure is used for Symfony Bundles
 
 * _Changed_ **Networks** and **Banners** are objects now
-* _Changed_ Events receive this objects and can manipulate and changed or deleted
-* _Changed_ now only 3 networks are supported: "adsense", "cpmstar" and "generic".
+* _Changed_ Events receive this object and can be manipulated and changed or deleted
+* _Changed_ now only three networks are supported: "adsense," "cpmstar" and "generic."
 	* All 3 can be customized. The “generic” network is designed to be extended to create a customized network.
 * _Changed_ **Twig functions**
 	* Rename `advertising_banner` to `idm_advertising_banner`
@@ -39,6 +39,6 @@ The whole Bundle is refactored to use more the concept of objects. The new struc
 
 ### Breaking changes
 
-* _BC_ removed old Network Provider `NetworkRegister`
-* _BC_ removed old event `TwigGeneric`
-* _BC_ removed old Twig Extension `AdvertisingGeneric`
+* _BC_ removed the old Network Provider ` NetworkRegister `
+* _BC_ removed the old event `TwigGeneric`
+* _BC_ removed the old Twig Extension `AdvertisingGeneric`
