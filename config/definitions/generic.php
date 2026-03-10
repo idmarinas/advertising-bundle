@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/03/2025, 22:21
+ * Last modified by "IDMarinas" on 10/03/2026, 22:15
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -33,7 +33,6 @@ return static function (): NodeDefinition {
 				->info('ID of custom service network.')
 				->isRequired()
 				->cannotBeEmpty()
-				->defaultNull()
 			->end()
 			->arrayNode('banners')
 				->useAttributeAsKey('name')
