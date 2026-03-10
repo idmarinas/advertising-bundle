@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 16:25
+ * Last modified by "IDMarinas" on 10/03/2026, 22:11
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -17,17 +17,23 @@
  * @since   2.0.0
  */
 
-use App\Provider\Network\InvalidNetwork;
-use Symfony\Config\IdmAdvertisingConfig;
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return function (IdmAdvertisingConfig $config) {
-	// @formatter:off
-	$generic = $config->generic()->enabled(true)->serviceNetwork(InvalidNetwork::class);
-	$generic
-		->banner('main')
-			->slot(89745631)
-			->attributes([
-				'nonce' => '276389r4cd5j51g328g972e35',
-			])
-	;
+use App\Provider\Network\InvalidNetwork;
+
+return function (ContainerConfigurator $container) {
+	$config = $container->extension('idm_advertising', [
+		'generic' => [
+			'enabled'         => true,
+			'service_network' => InvalidNetwork::class,
+			'banners'         => [
+				'main' => [
+					'slot'       => 89745631,
+					'attributes' => [
+						'nonce' => '276389r4cd5j51g328g972e35',
+					],
+				],
+			],
+		],
+	]);
 };

@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 14:27
+ * Last modified by "IDMarinas" on 10/03/2026, 22:07
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -17,49 +17,63 @@
  * @since   2.0.0
  */
 
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
+
 use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
-use Symfony\Config\IdmAdvertisingConfig;
 
-return function (IdmAdvertisingConfig $config) {
-	// @formatter:off
-	$adsense = $config->adsense()->enabled(true)->client('ca-pub-XXXXXXX11XXX9');
-	$adsense
-			->banner('ad_header')
-				->slot(4555454)
-				->responsive(true)
-				->attributes([
-					'class' => 'ads',
-					'style' => 'display: inline-block;'
-				])
-	;
-	$adsense->banner('main')
-		->slot(54555454)
-		->responsive(false)
-		->attributes([
-			'class' => 'adsbygoogle',
-			'style' => 'display:block',
-		])
-	;
-	$adsense->banner('article')
-		->slot(45345454)
-		->type(AdsenseAdTypeEnum::InArticle->value)
-	;
-	$adsense->banner('feed')
-		->slot(4559454)
-		->type(AdsenseAdTypeEnum::InFeed->value)
-		->attributes([
-			'layout-in-feed' => '-6t+ed+2i-1n-4w'
-		])
-	;
+return function (ContainerConfigurator $container) {
 
-	$cpmstar = $config->cpmstar()->enabled(true);
-
-	$cpmstar->banner('main')->slot(4555454);
-	$cpmstar->banner('head')->slot(4559454)->attributes([
-		'class' => 'cpmstart',
-		'style' => 'display: inline-block;',
-		'src' => 'http://example.script',
-		'data-other' => 'other-attribute'
+	$container->extension('idm_advertising', [
+		'adsense' => [
+			'enabled' => true,
+			'client'  => 'ca-pub-XXXXXXX11XXX9',
+			'banners' => [
+				'ad_header' => [
+					'slot'       => 4555454,
+					'responsive' => true,
+					'attributes' => [
+						'class' => 'ads',
+						'style' => 'display: inline-block;',
+					],
+				],
+				'main'      => [
+					'slot'       => 54555454,
+					'responsive' => false,
+					'attributes' => [
+						'class' => 'adsbygoogle',
+						'style' => 'display:block',
+					],
+				],
+				'article'   => [
+					'slot' => 45345454,
+					'type' => AdsenseAdTypeEnum::InArticle->value,
+				],
+				'feed'      => [
+					'slot'       => 4559454,
+					'type'       => AdsenseAdTypeEnum::InFeed->value,
+					'attributes' => [
+						'layout-in-feed' => '-6t+ed+2i-1n-4w',
+					],
+				],
+			],
+		],
+		'cpmstar' => [
+			'enabled' => true,
+			'banners' => [
+				'main' => [
+					'slot' => 4555454,
+				],
+				'head' => [
+					'slot'       => 4559454,
+					'attributes' => [
+						'class'      => 'cpmstart',
+						'style'      => 'display: inline-block;',
+						'src'        => 'http://example.script',
+						'data-other' => 'other-attribute',
+					],
+				],
+			],
+		],
 	]);
 };
 
