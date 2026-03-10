@@ -4,7 +4,6 @@
     <plugin id="Docker" />
     <plugin id="Git4Idea" />
     <plugin id="com.jetbrains.php" />
-    <plugin id="com.jetbrains.writerside" />
     <plugin id="fr.adrienbrault.idea.symfony2plugin" />
     <plugin id="org.editorconfig.editorconfigjetbrains" />
     <plugin id="org.intellij.plugins.markdown" />
