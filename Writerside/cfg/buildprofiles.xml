@@ -3,7 +3,7 @@
 <buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
 
-	<sitemap priority="0.35" change-frequency="monthly" />
+	<sitemap priority="0.35" change-frequency="monthly"/>
 
 	<variables>
 		<contribute-url>https://www.github.com/%package_name%/edit/%branch%/Writerside</contribute-url>
@@ -16,7 +16,7 @@
 
 	<footer>
 		<social type="blog" href="https://bit.ly/m/idmarinas">See my other projects</social>
-		<social type="twitter" href="https://x.com/idmarinas" />
+		<social type="twitter" href="https://x.com/idmarinas"/>
 
 		<link href="https://www.github.com/%package_name%/issues">Issues</link>
 

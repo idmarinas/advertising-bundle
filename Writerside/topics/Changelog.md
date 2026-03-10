@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0 - (2026-03-10)
+
+### Added {id="added_2"}
+
+* _Added_ Compatibility with Symfony `8.0`
+
 ## 2.1.0 - (2025-09-18)
 
 ### Added {id="added_1"}
