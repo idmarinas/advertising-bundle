@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2021-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2021-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/03/2025, 15:33
+ * Last modified by "IDMarinas" on 10/03/2026, 22:22
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -32,37 +32,37 @@ final class IdmAdvertisingBundle extends AbstractBundle implements CompilerPassI
 {
 	private array $extensionConfig;
 
-	public function build (ContainerBuilder $container): void
+	public function build(ContainerBuilder $container): void
 	{
 		$container->addCompilerPass($this);
 	}
 
-	public function configure (DefinitionConfigurator $definition): void
+	public function configure(DefinitionConfigurator $definition): void
 	{
-		$definition->import(dirname(__DIR__) . '/config/definitions.php');
+		$definition->import(dirname(__DIR__).'/config/definitions.php');
 	}
 
-	public function loadExtension (array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+	public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
 		$this->extensionConfig = $config;
-		$container->import(dirname(__DIR__) . '/config/services.php');
-		$container->import(dirname(__DIR__) . '/config/twig.php');
+		$container->import(dirname(__DIR__).'/config/services.php');
+		$container->import(dirname(__DIR__).'/config/twig.php');
 	}
 
-	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
+	public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
 		if ($builder::willBeAvailable('symfony/ux-twig-component', TwigComponentBundle::class, ['symfony/twig-bundle'])) {
-			$container->import(dirname(__DIR__) . '/config/twig_component.php');
+			$container->import(dirname(__DIR__).'/config/twig_component.php');
 		}
 	}
 
-	public function process (ContainerBuilder $container): void
+	public function process(ContainerBuilder $container): void
 	{
 		$providerHub = $container->findDefinition('.idm_advertising.provider_hub');
 		$providerHub->addMethodCall('disableAdvertising'); // Disabled by default
 
 		foreach ($this->extensionConfig as $network => $settings) {
-			if (null === $settings['service_network']) {
+			if (!isset($settings['service_network'])) {
 				continue;
 			}
 
