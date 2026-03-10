@@ -1,5 +1,5 @@
 ###> idmarinas/advertising-bundle ###
-**/*.dist[.]*
+**/*.dist
 /build/
 /vendor/
 /var/
