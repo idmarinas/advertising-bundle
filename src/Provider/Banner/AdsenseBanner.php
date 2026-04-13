@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 14/03/2025, 17:37
+ * Last modified by "IDMarinas" on 13/04/2026, 16:55
  *
  * @project IDMarinas Advertising Bundle
  * @see     https://github.com/idmarinas/advertising-bundle
@@ -24,75 +24,78 @@ use Idm\Bundle\Advertising\Enums\Provider\Network\AdsenseAdTypeEnum;
 
 final class AdsenseBanner extends AbstractBanner
 {
-	private string              $client;
-	private AdsenseAdTypeEnum   $type;
-	private AdsenseAdFormatEnum $format;
-	private bool                $responsive;
-	private string              $layoutInFeed = '';
+	private string $client;
 
-	public function getClient (): string
+	private AdsenseAdTypeEnum $type;
+
+	private AdsenseAdFormatEnum $format;
+
+	private bool $responsive;
+
+	private string $layoutInFeed = '';
+
+	public function getClient(): string
 	{
 		return $this->client;
 	}
 
-	public function setClient (string $client): self
+	public function setClient(string $client): self
 	{
 		$this->client = $client;
 
 		return $this;
 	}
 
-	public function getType (): AdsenseAdTypeEnum
+	public function getType(): AdsenseAdTypeEnum
 	{
 		return $this->type;
 	}
 
-	public function setType (AdsenseAdTypeEnum $type): self
+	public function setType(AdsenseAdTypeEnum $type): self
 	{
 		$this->type = $type;
 
 		return $this;
 	}
 
-	public function getFormat (): AdsenseAdFormatEnum
+	public function getFormat(): AdsenseAdFormatEnum
 	{
 		return $this->format;
 	}
 
-	public function setFormat (AdsenseAdFormatEnum $format): self
+	public function setFormat(AdsenseAdFormatEnum $format): self
 	{
 		$this->format = $format;
 
 		return $this;
 	}
 
-	public function isResponsive (): bool
+	public function isResponsive(): bool
 	{
 		return $this->responsive;
 	}
 
-	public function setResponsive (bool $responsive): self
+	public function setResponsive(bool $responsive): self
 	{
 		$this->responsive = $responsive;
 
 		return $this;
 	}
 
-	public function getLayoutInFeed (): string
+	public function getLayoutInFeed(): string
 	{
 		return $this->layoutInFeed;
 	}
 
-	public function getTemplate (): string
+	public function getTemplate(): string
 	{
-		$style = $this->getAttrStyle() . ($this->getType() == AdsenseAdTypeEnum::InArticle ? ' text-align:center;' : '');
+		$style = $this->getAttrStyle().($this->getType() == AdsenseAdTypeEnum::InArticle ? ' text-align:center;' : '');
 
-		$attributes = ' data-ad-client="' . $this->getClient() . '"';
-		$attributes .= ' data-ad-slot="' . $this->getSlot() . '"';
+		$attributes = ' data-ad-client="'.$this->getClient().'"';
+		$attributes .= ' data-ad-slot="'.$this->getSlot().'"';
 		$attributes .= $this->extraAttributesForBanner();
-		$attributes .= ' class="' . $this->getAttrClass() . '"';
-		$attributes .= ' style="' . $style . '"';
-		$attributes .= $this->getNonce('style');
+		$attributes .= ' class="'.$this->getAttrClass().'"';
+		$attributes .= ' style="'.$style.'"';
 		$attributes .= $this->processAttributes($this->getAttributes()->getArrayCopy());
 
 		$tpl = sprintf('<ins%s></ins>', $attributes);
@@ -107,11 +110,11 @@ final class AdsenseBanner extends AbstractBanner
 			AdsenseAdTypeEnum::Display,
 			AdsenseAdTypeEnum::InArticle,
 			AdsenseAdTypeEnum::InFeed,
-			AdsenseAdTypeEnum::Multiplex => $tpl . "\n" . $script,
+			AdsenseAdTypeEnum::Multiplex => $tpl."\n".$script,
 		};
 	}
 
-	public function setAttributes (array $attributes): self
+	public function setAttributes(array $attributes): self
 	{
 		$this->attrClass = 'adsbygoogle';
 		$this->attrStyle = 'display:block;';
@@ -124,7 +127,7 @@ final class AdsenseBanner extends AbstractBanner
 		return parent::setAttributes($attributes);
 	}
 
-	private function extraAttributesForBanner (): string
+	private function extraAttributesForBanner(): string
 	{
 		$format = match ($this->getType()) {
 			AdsenseAdTypeEnum::InArticle,
@@ -135,11 +138,11 @@ final class AdsenseBanner extends AbstractBanner
 
 		$attributes = match ($this->getType()) {
 			AdsenseAdTypeEnum::InArticle => ' data-ad-layout="in-article"',
-			AdsenseAdTypeEnum::Display   => ' data-full-width-responsive="' . var_export($this->isResponsive(), true) . '"',
-			AdsenseAdTypeEnum::InFeed    => ' data-ad-layout-key="' . $this->getLayoutInFeed() . '"',
+			AdsenseAdTypeEnum::Display   => ' data-full-width-responsive="'.var_export($this->isResponsive(), true).'"',
+			AdsenseAdTypeEnum::InFeed    => ' data-ad-layout-key="'.$this->getLayoutInFeed().'"',
 			default                      => ' '
 		};
-		$attributes .= ' data-ad-format="' . $format . '"';
+		$attributes .= ' data-ad-format="'.$format.'"';
 
 		return $attributes;
 	}
