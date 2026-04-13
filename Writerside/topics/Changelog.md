@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.1 - (2026-04-13)
+
+### Fixed {id="fixed_1"}
+
+* _Fixed_ **AdsenseBanner.php** remove `nonce` from the `<ins />` tag
+
 ## 2.2.0 - (2026-03-10)
 
 ### Added {id="added_2"}
